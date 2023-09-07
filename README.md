@@ -2,9 +2,8 @@
 
 **Description:**
 
->The Project consists in a challenge received in an Internship Program, where it was necessary to make a app with three screens.
-The fisrt one with a background image, title, and a button that takes you to the second screen with a card list, each card represents a different restaurant. After click in a card you will be redirected to the third screen, that contains the restaurant image, title, rating and menu.
-
+>The Project consists in a challenge received in an Internship Program, where it was necessary to make a app with five screens.
+The first with background image, title and registration/login button that leads to the second screen with a list of plants, each card represents a different plant. After clicking on a card you will be redirected to the third screen, which contains the plant image, title, value and description of the plant.
 
 
 <br> **What We used in this Project:**<br>
