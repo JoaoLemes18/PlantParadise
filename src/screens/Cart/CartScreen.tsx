@@ -8,7 +8,7 @@ import {
   TouchableOpacity,
   SafeAreaView,
 } from "react-native";
-import CardCart from "../components/Cards/cardCart";
+import CardCart from "../../components/Cards/cardCart";
 import { useRoute } from "@react-navigation/native";
 
 interface CartItem {

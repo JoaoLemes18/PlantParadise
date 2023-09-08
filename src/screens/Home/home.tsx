@@ -10,9 +10,9 @@ import {
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
-import MediuCard from "../components/Cards/HorizontalCard/HorizontalCard";
+import HorizontalCard from "../../components/Cards/HorizontalCard/HorizontalCard";
 
-import VerticalCard from "../components/Cards/VerticalCard/VerticalCard";
+import VerticalCard from "../../components/Cards/VerticalCard/VerticalCard";
 
 const Home = ({ navigation }) => {
   const data: Item[] = [
@@ -108,7 +108,7 @@ const Home = ({ navigation }) => {
               contentContainerStyle={styles.cardList}
               renderItem={({ item }) => (
                 <View style={styles.cardContainer}>
-                  <MediuCard
+                  <HorizontalCard
                     imageSource={item.imageSource}
                     title={item.title}
                     value={item.value}

@@ -6,7 +6,7 @@ import {
   ImageBackground,
   SafeAreaView,
 } from "react-native";
-import ButtonComponent from "../components/Button/button";
+import ButtonComponent from "../../components/Button/button";
 
 export default function InicialPage({ navigation }: { navigation: any }) {
   return (

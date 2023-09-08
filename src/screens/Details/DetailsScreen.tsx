@@ -10,7 +10,7 @@ import {
 } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { useRoute } from "@react-navigation/native";
-import CartPage from "./cartPage";
+import CartPage from "../Cart/CartScreen";
 
 interface Item {
   id: string;
