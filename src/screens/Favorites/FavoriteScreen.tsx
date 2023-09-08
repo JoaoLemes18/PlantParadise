@@ -1,7 +1,7 @@
 import React from "react";
 import { View, Text, StyleSheet, SafeAreaView, ScrollView } from "react-native";
 
-import StickCard from "../../components/stickCard";
+import StickCard from "../../components/Cards/stickCard";
 
 export default function FavoritePage({ navigation }) {
   return (
