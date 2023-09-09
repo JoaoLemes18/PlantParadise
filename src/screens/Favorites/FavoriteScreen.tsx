@@ -1,6 +1,6 @@
 import React from "react";
-import { View, Text, StyleSheet, SafeAreaView, ScrollView } from "react-native";
-
+import { View, Text, SafeAreaView, ScrollView } from "react-native";
+import { styles } from "./styles";
 import StickCard from "../../components/Cards/stickCard";
 
 export default function FavoritePage({ navigation }) {
@@ -46,22 +46,3 @@ export default function FavoritePage({ navigation }) {
     </>
   );
 }
-
-const styles = StyleSheet.create({
-  contentContainer: {
-    flex: 1,
-    paddingHorizontal: 20,
-  },
-  container: { flex: 1 },
-
-  content: {
-    padding: 20,
-    flexDirection: "row",
-    justifyContent: "space-between",
-  },
-  usertext: {
-    fontSize: 20,
-    color: "#000000",
-    fontWeight: "bold",
-  },
-});
