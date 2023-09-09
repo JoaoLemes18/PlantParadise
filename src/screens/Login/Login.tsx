@@ -5,6 +5,7 @@ import {
   View,
   ImageBackground,
   TextInput,
+  SafeAreaView,
 } from "react-native";
 import { styles } from "./styles";
 import ButtonComponent from "../../components/Button/button";
@@ -33,10 +34,10 @@ export default function LoginPage({ navigation }: { navigation: any }) {
   const showToastError = () => {
     Toast.show({
       type: "error",
-      text1: "Olá 👋",
-      text2: "Esse usuário não existe!",
-      position: "top",
-      visibilityTime: 1000,
+      text1: "Ops😬😬😬",
+      text2: "This user does not exist!",
+      position: "bottom",
+      visibilityTime: 5000,
       autoHide: true,
       topOffset: 10,
       bottomOffset: 40,
@@ -68,28 +69,29 @@ export default function LoginPage({ navigation }: { navigation: any }) {
 
   return (
     <ImageBackground
-      source={require("../../assets/inicialpageimage.png")}
+      source={require("../../../assets/loginimage.png")}
       resizeMode="cover"
       style={styles.container}
     >
       <Toast />
       <View style={styles.boxInicial}>
         <View style={styles.HeaderBox}>
-          <Text style={styles.textHeader}>Login</Text>
+          <Text style={styles.textHeader}>Hi!</Text>
+          <Text style={styles.text}>Welcome</Text>
         </View>
 
         <View style={styles.HeaderButtons}>
           <TextInput
             style={styles.TextInput}
             onChangeText={(email) => setEmail(email)}
-            placeholder="Digite seu email..."
+            placeholder="Email..."
           />
 
           <TextInput
             style={styles.TextInput}
             onChangeText={(password) => setPassword(password)}
             secureTextEntry
-            placeholder="Digite sua senha..."
+            placeholder="Password..."
           />
 
           <ButtonComponent
@@ -98,8 +100,8 @@ export default function LoginPage({ navigation }: { navigation: any }) {
             style={styles.TextInput}
           />
 
-          <TouchableOpacity onPress={() => navigation.navigate("RegisterPage")}>
-            <Text>Se voce não tem conta, clique aqui</Text>
+          <TouchableOpacity onPress={() => navigation.navigate("Register")}>
+            <Text>If you don't have an account, click here</Text>
           </TouchableOpacity>
         </View>
       </View>

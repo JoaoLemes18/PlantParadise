@@ -2,15 +2,16 @@ import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
   container: {
-    flex: 1, // Define flex 1 para que ocupe 100% da tela
-    alignItems: "center", // Você pode ajustar isso conforme necessário
-    justifyContent: "flex-end", // Você pode ajustar isso conforme necessário
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "flex-end",
   },
 
   boxInicial: {
     justifyContent: "center",
     alignItems: "center",
     backgroundColor: "#fff",
+    height: "50%",
     width: "100%",
   },
 
@@ -18,14 +19,18 @@ export const styles = StyleSheet.create({
     borderWidth: 1,
     padding: 2,
     width: 250,
-    borderRadius: 3,
+    fontSize: 20,
+    borderRadius: 5,
   },
-
+  here: { color: "pink" },
   textHeader: {
-    fontSize: 40,
+    fontSize: 50,
+    marginEnd: 10,
+    right: 20,
     fontWeight: "bold",
     width: "100%",
   },
+  text: { fontSize: 50, fontWeight: "bold", right: 20, bottom: 10 },
   textcontent: {
     fontSize: 15,
     width: 300,
@@ -35,10 +40,11 @@ export const styles = StyleSheet.create({
     gap: 15,
   },
   HeaderButtons: {
-    gap: 10,
+    gap: 20,
     width: "100%",
     justifyContent: "center",
     alignItems: "center",
+
     marginBottom: 20,
     marginTop: 10,
   },
