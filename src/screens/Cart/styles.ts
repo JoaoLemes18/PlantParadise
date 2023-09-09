@@ -6,7 +6,6 @@ export const styles = StyleSheet.create({
     paddingHorizontal: 16,
     paddingTop: 16,
   },
-  container: { flex: 1 },
   content: {
     padding: 20,
     flexDirection: "row",
@@ -21,7 +20,6 @@ export const styles = StyleSheet.create({
     width: "80%",
     padding: 12,
     marginTop: 16,
-    bottom: 20,
     justifyContent: "space-between",
     flexDirection: "row",
     alignItems: "flex-end",
@@ -39,7 +37,6 @@ export const styles = StyleSheet.create({
     fontWeight: "bold",
   },
   checkoutButton: {
-    bottom: 20,
     width: "80%",
     backgroundColor: "#418B64",
     marginTop: 16,
@@ -54,7 +51,7 @@ export const styles = StyleSheet.create({
   },
 
   centralize: {
-    flex: 1,
+    // flex: 1,
     justifyContent: "flex-end",
     alignItems: "center",
   },

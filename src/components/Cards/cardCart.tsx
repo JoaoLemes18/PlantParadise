@@ -1,5 +1,12 @@
 import React, { useState } from "react";
-import { View, Text, Image, TouchableOpacity, StyleSheet, Platform } from "react-native";
+import {
+  View,
+  Text,
+  Image,
+  TouchableOpacity,
+  StyleSheet,
+  Platform,
+} from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 
 const CardCart = ({ imageSource, title, value, quantity }) => {
@@ -20,8 +27,6 @@ const CardCart = ({ imageSource, title, value, quantity }) => {
   };
 
   const handleDelete = () => {
-    // Implemente aqui a lógica para excluir o card
-    // Isso pode envolver a remoção do card da lista de cards ou outra ação apropriada
     console.log("Card excluído");
   };
 
@@ -40,7 +45,10 @@ const CardCart = ({ imageSource, title, value, quantity }) => {
             <Ionicons name="trash-outline" size={20} color="red" />
           </TouchableOpacity>
         ) : (
-          <TouchableOpacity style={styles.actionButton} onPress={handleDecrease}>
+          <TouchableOpacity
+            style={styles.actionButton}
+            onPress={handleDecrease}
+          >
             <Ionicons name="remove" size={20} color="white" />
           </TouchableOpacity>
         )}

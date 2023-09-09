@@ -1,5 +1,5 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import {
   View,
   Text,
@@ -8,30 +8,25 @@ import {
   TouchableOpacity,
   SafeAreaView,
 } from "react-native";
+import { useCart } from "../../context/Cart";
+
+import Toast from "react-native-toast-message";
 import CardCart from "../../components/Cards/cardCart";
 import { useRoute } from "@react-navigation/native";
 import { styles } from "./styles";
-interface CartItem {
+export interface CartItem {
   id: string;
-  imageSource: any; // Substitua "any" pelo tipo apropriado para sua imagem
+  imageSource: any;
   title: string;
   value: string;
-  quantity: string; // Adicione o tipo para a quantidade
+  quantity: string;
 }
 
 export default function CartPage({ navigation }) {
-  const [cartItems, setCartItems] = useState<CartItem[]>([]);
+  // const [cartItems, setCartItems] = useState<CartItem[]>([]);
+  const { cartItems, addCart, addCarts, deletItem } = useCart();
 
   const route = useRoute();
-
-  // Função para calcular o subtotal
-  const calculateSubtotal = () => {
-    let subtotal = 0;
-    for (const item of cartItems) {
-      subtotal += parseFloat(item.value) * parseFloat(item.quantity);
-    }
-    return subtotal.toFixed(2); // Arredonde o subtotal para duas casas decimais
-  };
 
   const routeParams = route.params as { cartItems: CartItem[] } | undefined;
 
@@ -42,8 +37,15 @@ export default function CartPage({ navigation }) {
     }
   }, [routeParams]);
 
+  const calculateSubtotal = () => {
+    let subtotal = 0;
+    for (const item of cartItems) {
+      subtotal += parseFloat(item.value) * parseFloat(item.quantity);
+    }
+    return subtotal.toFixed(2); // Arredonde o subtotal para duas casas decimais
+  };
+
   const addToCart = (item: CartItem) => {
-    // Verifique se o item já existe no carrinho com base em uma chave única (por exemplo, o ID)
     const existingItem = cartItems.find((i) => i.id === item.id);
 
     if (existingItem) {
@@ -52,68 +54,81 @@ export default function CartPage({ navigation }) {
         if (i.id === item.id) {
           i.quantity = (
             parseFloat(i.quantity) + parseFloat(item.quantity)
-          ).toString(); // Mantenha como string
+          ).toString();
         }
         return i;
       });
-      console.log("Não criou outro card");
-      setCartItems(updatedCartItems);
+      addCart(updatedCartItems);
     } else {
-      // Caso contrário, adicione o novo item ao carrinho
-      console.log("criou outro card");
-      setCartItems([...cartItems, item]);
+      addCarts(item);
+      console.log(item);
     }
   };
 
-  console.log(cartItems);
+  const removeFromCart = (id: any) => {
+    deletItem(id);
+  };
 
-  // Função para finalizar a compra
+  const showToastsuccess = () => {
+    Toast.show({
+      type: "success",
+      text1: "parabens 👋",
+      text2: "compra realizada com sucesso!",
+      position: "top",
+      visibilityTime: 9000,
+      autoHide: true,
+      topOffset: 10,
+      bottomOffset: 40,
+      keyboardOffset: 10,
+    });
+  };
+
   const handleCheckout = () => {
-    // Implemente a lógica para finalizar a compra aqui
-    // Você pode navegar para a próxima tela, exibir um modal, etc.
-    // Por enquanto, vou apenas limpar o carrinho de compras
-    setCartItems([]);
+    addCart([]);
+    showToastsuccess();
   };
 
   return (
     <>
-      <SafeAreaView style={styles.container}>
-        <ScrollView style={{ flex: 1 }} scrollEnabled={true}>
-          <View style={styles.content}>
-            <Text style={styles.usertext}>Cart</Text>
-          </View>
-
-          <View style={styles.contentContainer}>
-            {/* Renderizar os itens do carrinho */}
-
-            {cartItems.map((item, index) => (
-              <CardCart
-                key={index}
-                imageSource={item.imageSource}
-                title={item.title}
-                value={item.value}
-                quantity={item.quantity}
-              />
-            ))}
-          </View>
-        </ScrollView>
-
-        <View style={styles.centralize}>
-          {/* Subtotal */}
-          <View style={styles.subtotalContainer}>
-            <Text style={styles.subtotalText}>Subtotal </Text>
-            <Text style={styles.subtotalText2}>R$ {calculateSubtotal()}</Text>
-          </View>
-
-          {/* Botão de finalizar compra */}
-          <TouchableOpacity
-            style={styles.checkoutButton}
-            onPress={handleCheckout}
-          >
-            <Text style={styles.checkoutButtonText}>Go to Checkout</Text>
-          </TouchableOpacity>
+      <ScrollView style={{ flex: 1, height: "100%" }} scrollEnabled={true}>
+        <View style={styles.content}>
+          <Text style={styles.usertext}>Cart</Text>
         </View>
-      </SafeAreaView>
+
+        <Toast />
+
+        <View style={styles.contentContainer}>
+          {/* Renderizar os itens do carrinho */}
+
+          {cartItems.map((item, index) => (
+            <CardCart
+              id={item.id}
+              key={index}
+              imageSource={item.imageSource}
+              title={item.title}
+              value={item.value}
+              quantity={item.quantity}
+              onremove={removeFromCart}
+            />
+          ))}
+        </View>
+      </ScrollView>
+
+      <View style={styles.centralize}>
+        {/* Subtotal */}
+        <View style={styles.subtotalContainer}>
+          <Text style={styles.subtotalText}>Subtotal </Text>
+          <Text style={styles.subtotalText2}>R$ {calculateSubtotal()}</Text>
+        </View>
+
+        {/* Botão de finalizar compra */}
+        <TouchableOpacity
+          style={styles.checkoutButton}
+          onPress={handleCheckout}
+        >
+          <Text style={styles.checkoutButtonText}>Go to Checkout</Text>
+        </TouchableOpacity>
+      </View>
     </>
   );
 }
