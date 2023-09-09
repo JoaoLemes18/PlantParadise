@@ -20,8 +20,8 @@ export default function LoginPage({ navigation }: { navigation: any }) {
   const showToast = () => {
     Toast.show({
       type: "success",
-      text1: "Olá 👋",
-      text2: "Seja bem-vindo!",
+      text1: "Hello 👋",
+      text2: "Welcome",
       position: "top",
       visibilityTime: 1000,
       autoHide: true,
