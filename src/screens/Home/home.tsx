@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import {
   View,
   Text,
-  StyleSheet,
   Image,
   FlatList,
   TouchableOpacity,
@@ -18,37 +17,37 @@ const Home = ({ navigation }) => {
   const data: Item[] = [
     {
       id: "1",
-      imageSource: require("../../assets/cardmedio.png"),
+      imageSource: require("../../../assets/cardmedio.png"),
       title: "Green Vines",
       value: "9.20",
     },
     {
       id: "2",
-      imageSource: require("../../assets/cardmedio.png"),
+      imageSource: require("../../../assets/cardmedio.png"),
       title: "Another Item",
       value: "12.99",
     },
     {
       id: "3",
-      imageSource: require("../../assets/cardmedio.png"),
+      imageSource: require("../../../assets/cardmedio.png"),
       title: "Yet Another Item",
       value: "7.50",
     },
     {
       id: "4",
-      imageSource: require("../../assets/cardmedio.png"),
+      imageSource: require("../../../assets/cardmedio.png"),
       title: "Green Vines",
       value: "9.20",
     },
     {
       id: "5",
-      imageSource: require("../../assets/cardmedio.png"),
+      imageSource: require("../../../assets/cardmedio.png"),
       title: "Another Item",
       value: "12.99",
     },
     {
       id: "6",
-      imageSource: require("../../assets/cardmedio.png"),
+      imageSource: require("../../../assets/cardmedio.png"),
       title: "Yet Another Item",
       value: "7.50",
     },
@@ -64,19 +63,19 @@ const Home = ({ navigation }) => {
   const dataLongCard: Item[] = [
     {
       id: "1",
-      imageSource: require("../../assets/imagelongcard.png"),
+      imageSource: require("../../../assets/imagelongcard.png"),
       title: "Green Vines",
       value: "9.20",
     },
     {
       id: "2",
-      imageSource: require("../../assets/imagelongcard.png"),
+      imageSource: require("../../../assets/imagelongcard.png"),
       title: "Another Item",
       value: "12.99",
     },
     {
       id: "3",
-      imageSource: require("../../assets/imagelongcard.png"),
+      imageSource: require("../../../assets/imagelongcard.png"),
       title: "Yet Another Item",
       value: "7.50",
     },
@@ -94,10 +93,10 @@ const Home = ({ navigation }) => {
         <ScrollView style={styles.container}>
           <View style={styles.content}>
             <Text style={styles.usertext}>Hi, John</Text>
-            <Image source={require("../../assets/userimage.png")} />
+            <Image source={require("../../../assets/userimage.png")} />
           </View>
 
-          <View style={styles.flatlistVerticalText}>
+          <View style={styles.flatlistVertical}>
             <Text style={styles.flatlistVerticalText}>Most popular</Text>
 
             <FlatList

@@ -1,5 +1,12 @@
 import React, { useState } from "react";
-import { View, Text, Image, TouchableOpacity, StyleSheet, Platform } from "react-native";
+import {
+  View,
+  Text,
+  Image,
+  TouchableOpacity,
+  StyleSheet,
+  Platform,
+} from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 
 const StickCard = ({ imageSource, title, value, isFavorite }) => {
@@ -19,19 +26,23 @@ const StickCard = ({ imageSource, title, value, isFavorite }) => {
         <Text style={styles.title}>{title}</Text>
         <Text style={styles.value}>{value}</Text>
       </View>
-    
-        <View style={styles.buttonFavorite}>
-      {/* Botão de coração */}
-      <TouchableOpacity
-        style={[
-          styles.heartButton,
-          isHeartClicked && styles.heartButtonClicked, // Aplica o estilo de botão clicado se isHeartClicked for verdadeiro
-        ]}
-        onPress={handleHeartClick}
-      >
-        {/* Use o componente Ionicons para o ícone de coração */}
-        <Ionicons name={heartIconName} size={20} color={isHeartClicked ? "#418B64" : "black"} />
-      </TouchableOpacity>
+
+      <View style={styles.buttonFavorite}>
+        {/* Botão de coração */}
+        <TouchableOpacity
+          style={[
+            styles.heartButton,
+            isHeartClicked && styles.heartButtonClicked, // Aplica o estilo de botão clicado se isHeartClicked for verdadeiro
+          ]}
+          onPress={handleHeartClick}
+        >
+          {/* Use o componente Ionicons para o ícone de coração */}
+          <Ionicons
+            name={heartIconName}
+            size={20}
+            color={isHeartClicked ? "#418B64" : "black"}
+          />
+        </TouchableOpacity>
       </View>
     </View>
   );
@@ -56,16 +67,17 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 18,
+    top: 10,
     fontWeight: "bold",
   },
   value: {
     fontSize: 14,
+    top: 12,
     fontWeight: "bold",
-
   },
   buttonFavorite: {
-      alignItems: "center",
-      justifyContent: "center",
+    alignItems: "center",
+    justifyContent: "center",
   },
   heartButton: {
     backgroundColor: "white",
@@ -87,7 +99,7 @@ const styles = StyleSheet.create({
       },
     }),
   },
-  heartButtonClicked: { 
+  heartButtonClicked: {
     backgroundColor: "white",
     ...Platform.select({
       ios: {

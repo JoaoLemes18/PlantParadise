@@ -14,28 +14,28 @@ export default function FavoritePage({ navigation }) {
 
           <View style={styles.contentContainer}>
             <StickCard
-              imageSource={require("../../assets/cardpequeno.png")}
+              imageSource={require("../../../assets/cardpequeno.png")}
               title={"Green Vines"}
               value={"$9.20"}
               isFavorite={true}
             />
 
             <StickCard
-              imageSource={require("../../assets/cardpequeno.png")}
+              imageSource={require("../../../assets/cardpequeno.png")}
               title={"Green Vines"}
               value={"$9.20"}
               isFavorite={true}
             />
 
             <StickCard
-              imageSource={require("../../assets/cardpequeno.png")}
+              imageSource={require("../../../assets/cardpequeno.png")}
               title={"Green Vines"}
               value={"$9.20"}
               isFavorite={true}
             />
 
             <StickCard
-              imageSource={require("../../assets/cardpequeno.png")}
+              imageSource={require("../../../assets/cardpequeno.png")}
               title={"Green Vines"}
               value={"$9.20"}
               isFavorite={true}

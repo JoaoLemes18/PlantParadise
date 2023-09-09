@@ -1,9 +1,7 @@
 import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
+  container: {},
   content: {
     padding: 20,
     flexDirection: "row",
@@ -22,7 +20,7 @@ export const styles = StyleSheet.create({
     marginHorizontal: 10,
   },
   flatlistVerticalText: {
-    right: 15,
+    left: 2,
     fontSize: 20,
     fontWeight: "bold",
     paddingHorizontal: 20,
@@ -37,8 +35,8 @@ export const styles = StyleSheet.create({
   },
   buttonGroup: {
     flexDirection: "row",
-    paddingHorizontal: 20,
-    right: 25,
+    paddingHorizontal: 68,
+    right: 76,
     top: 10,
   },
   button: {
