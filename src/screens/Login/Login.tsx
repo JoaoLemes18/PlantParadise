@@ -21,7 +21,7 @@ export default function LoginPage({ navigation }: { navigation: any }) {
     Toast.show({
       type: "success",
       text1: "Hello 👋",
-      text2: "Welcome",
+      text2: "Good purchases!",
       position: "top",
       visibilityTime: 1000,
       autoHide: true,
@@ -36,7 +36,7 @@ export default function LoginPage({ navigation }: { navigation: any }) {
       type: "error",
       text1: "Ops😬😬😬",
       text2: "This user does not exist!",
-      position: "bottom",
+      position: "top",
       visibilityTime: 5000,
       autoHide: true,
       topOffset: 10,

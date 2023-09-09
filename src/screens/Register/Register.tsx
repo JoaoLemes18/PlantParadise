@@ -10,10 +10,25 @@ import {
 import ButtonComponent from "../../components/Button/button";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../firebase/config";
+import Toast from "react-native-toast-message";
 
 export default function RegisterPage({ navigation }: { navigation: any }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  const showToast = () => {
+    Toast.show({
+      type: "success",
+      text1: "Congratulations🎉🥳",
+      text2: "Welcome to app!",
+      position: "top",
+      visibilityTime: 9000,
+      autoHide: true,
+      topOffset: 10,
+      bottomOffset: 40,
+      keyboardOffset: 10,
+    });
+  };
 
   async function Register() {
     console.log("email: " + email);
@@ -29,8 +44,10 @@ export default function RegisterPage({ navigation }: { navigation: any }) {
       const user = userCredential.user;
       console.log("usuario criado");
       navigation.navigate("Login");
+      showToast();
     } catch (error) {
       console.error("Erro no createUserWithEmailAndPassword:", error);
+
       // Trate o erro conforme necessário
     }
   }
