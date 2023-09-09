@@ -16,7 +16,8 @@ export const styles = StyleSheet.create({
   },
 
   TextInput: {
-    borderWidth: 1,
+    borderColor: "#969595",
+    borderBottomWidth: 1,
     padding: 2,
     width: 250,
     fontSize: 20,

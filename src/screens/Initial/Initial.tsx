@@ -27,7 +27,7 @@ export default function InicialPage({ navigation }: { navigation: any }) {
           />
 
           <ButtonComponent
-            onPress={() => console.log("teste2")}
+            onPress={() => navigation.navigate("Register")}
             text={"Sign Up"}
           />
         </View>

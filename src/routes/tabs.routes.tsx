@@ -6,7 +6,7 @@ import Home from "../screens/Home/home";
 import Favorites from "../screens/Favorites/FavoriteScreen";
 import Cart from "../screens/Cart/CartScreen";
 import Icon from "react-native-vector-icons/FontAwesome"; // Importe o pacote de ícones FontAwesome
-import Initial from "../screens/Initial/inicialPage";
+import Initial from "../screens/Initial/Initial";
 import Register from "../screens/Register/Register";
 import Login from "../screens/Login/Login";
 
