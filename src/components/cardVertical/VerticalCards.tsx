@@ -3,7 +3,7 @@ import { View, Text, Image, TouchableOpacity } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { styles } from "./styles";
 import DetailScreen from "../../screens/Details/DetailsScreen";
-const VerticalCardsButton = ({
+const VerticalCards = ({
   imageSource,
   title,
   value,
@@ -49,4 +49,4 @@ const VerticalCardsButton = ({
   );
 };
 
-export default VerticalCardsButton;
+export default VerticalCards;

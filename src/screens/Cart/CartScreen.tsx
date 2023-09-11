@@ -6,11 +6,11 @@ import {
   ScrollView,
   TouchableOpacity,
 } from "react-native";
-import Footer from "../";
-import CardCart from "../components/cardCart";
+import CardCart from "../../components/Cards/cardCart";
 import { useRoute } from "@react-navigation/native";
-import { useCart } from "../context/cart";
+import { useCart } from "../../context/Cart";
 import Toast from "react-native-toast-message";
+import { styles } from "./styles";
 
 export interface CartItem {
   id: string;
@@ -20,8 +20,8 @@ export interface CartItem {
   quantity: string;
 }
 
-export default function CartPage({ navigation }) {
-  const { cartItems, addCart, addCarts, deletItem } = useCart();
+export default function CartScreen({ navigation }) {
+  const { cartItems = [], addCart, addCarts, deletItem } = useCart();
 
   const route = useRoute();
 
@@ -126,8 +126,6 @@ export default function CartPage({ navigation }) {
           <Text style={styles.checkoutButtonText}>Go to Checkout</Text>
         </TouchableOpacity>
       </View>
-
-      <Footer navigation={navigation} currentPage="Cart" />
     </>
   );
 }
