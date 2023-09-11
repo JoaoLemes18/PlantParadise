@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   View,
   Text,
@@ -13,77 +13,50 @@ import { styles } from "./styles";
 import VerticalCard from "../../components/Cards/VerticalCard/VerticalCard";
 
 const Home = ({ navigation }) => {
-  const data: Item[] = [
-    {
-      id: "1",
-      imageSource: require("../../../assets/cardmedio.png"),
-      title: "Green Vines",
-      value: "9.20",
-    },
-    {
-      id: "2",
-      imageSource: require("../../../assets/cardmedio.png"),
-      title: "Another Item",
-      value: "12.99",
-    },
-    {
-      id: "3",
-      imageSource: require("../../../assets/cardmedio.png"),
-      title: "Yet Another Item",
-      value: "7.50",
-    },
-    {
-      id: "4",
-      imageSource: require("../../../assets/cardmedio.png"),
-      title: "Green Vines",
-      value: "9.20",
-    },
-    {
-      id: "5",
-      imageSource: require("../../../assets/cardmedio.png"),
-      title: "Another Item",
-      value: "12.99",
-    },
-    {
-      id: "6",
-      imageSource: require("../../../assets/cardmedio.png"),
-      title: "Yet Another Item",
-      value: "7.50",
-    },
-  ];
-
   interface Item {
+    description: any;
+    category: string;
+    price: any;
+    image: any;
     id: string;
     imageSource: any;
     title: string;
-    value: string;
   }
-
-  const dataLongCard: Item[] = [
-    {
-      id: "1",
-      imageSource: require("../../../assets/cardgrande.png"),
-      title: "Green Vines",
-      value: "9.20",
-    },
-    {
-      id: "2",
-      imageSource: require("../../../assets/cardgrande.png"),
-      title: "Another Item",
-      value: "12.99",
-    },
-    {
-      id: "3",
-      imageSource: require("../../../assets/cardgrande.png"),
-      title: "Yet Another Item",
-      value: "7.50",
-    },
-  ];
+  const [data, setData] = useState<Item[]>([]);
+  const [selectedCategory, setSelectedCategory] = useState("All");
 
   const [selectedButton, setSelectedButton] = useState("All");
 
-  const handleButtonClick = (button) => {
-    setSelectedButton(button);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(
+          "https://8jcox47hg2.execute-api.us-east-2.amazonaws.com/dev/"
+        );
+        if (response.status === 200) {
+          const responseData = await response.json();
+          const items = responseData.body.data.items;
+          if (Array.isArray(items)) {
+            setData(items);
+          } else {
+            console.error("Os dados da API não estão no formato esperado.");
+          }
+        } else {
+          console.error(
+            "A requisição não foi bem-sucedida. Código de status:",
+            response.status
+          );
+        }
+      } catch (error) {
+        console.error("Erro ao fazer a requisição:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  const handleButtonClickcategory = (category) => {
+    setSelectedCategory(category);
   };
 
   return (
@@ -112,9 +85,9 @@ const Home = ({ navigation }) => {
               renderItem={({ item }) => (
                 <View style={styles.cardContainer}>
                   <HorizontalCard
-                    imageSource={item.imageSource}
                     title={item.title}
-                    value={item.value}
+                    imageSource={{ uri: item.imageSource }}
+                    value={item.price}
                     onAddToCart={() => console.log("adicionado ao carrinho")}
                   />
                 </View>
@@ -125,7 +98,7 @@ const Home = ({ navigation }) => {
           <View>
             <View style={styles.buttonGroup}>
               <TouchableOpacity
-                onPress={() => handleButtonClick("All")}
+                onPress={() => handleButtonClickcategory("All")}
                 style={[
                   styles.button,
                   selectedButton === "All" && styles.selectedButton,
@@ -141,7 +114,7 @@ const Home = ({ navigation }) => {
                 </Text>
               </TouchableOpacity>
               <TouchableOpacity
-                onPress={() => handleButtonClick("Indoor")}
+                onPress={() => handleButtonClickcategory("Indoor")}
                 style={[
                   styles.button,
                   selectedButton === "Indoor" && styles.selectedButton,
@@ -157,7 +130,7 @@ const Home = ({ navigation }) => {
                 </Text>
               </TouchableOpacity>
               <TouchableOpacity
-                onPress={() => handleButtonClick("Outdoor")}
+                onPress={() => handleButtonClickcategory("Outdoor")}
                 style={[
                   styles.button,
                   selectedButton === "Outdoor" && styles.selectedButton,
@@ -176,23 +149,32 @@ const Home = ({ navigation }) => {
           </View>
 
           <View style={styles.longcardlist}>
-            {dataLongCard.map((item) => (
-              <VerticalCard
-                veiwDetails={() =>
-                  navigation.navigate("Details", {
-                    id: item.id,
-                    imageSource: item.imageSource,
-                    title: item.title,
-                    value: item.value,
-                  })
-                }
-                key={item.id}
-                imageSource={item.imageSource}
-                onAddToCart={() => console.log("adicionado ao carrinho")}
-                title={item.title}
-                value={item.value}
-              />
-            ))}
+            {data
+              .filter((item) =>
+                selectedCategory === "All"
+                  ? true
+                  : item.category === selectedCategory
+              )
+              .map((item) => (
+                <VerticalCard
+                  veiwDetails={() =>
+                    navigation.navigate("Details", {
+                      id: item.id,
+                      imageSource: item.image,
+                      title: item.title,
+                      value: item.price,
+                      category: item.category,
+                      description: item.description,
+                    })
+                  }
+                  key={item.id}
+                  imageSource={item.image}
+                  onAddToCart={() => console.log("adicionado ao carrinho")}
+                  title={item.title}
+                  value={item.price}
+                  id={item.id}
+                />
+              ))}
           </View>
         </ScrollView>
       </SafeAreaView>

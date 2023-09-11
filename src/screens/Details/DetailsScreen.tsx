@@ -4,21 +4,23 @@ import {
   Text,
   StyleSheet,
   Image,
-  SafeAreaView,
   TouchableOpacity,
   ScrollView,
   Platform,
+  SafeAreaView,
 } from "react-native";
+import { styles } from "./styles";
 import { Ionicons } from "@expo/vector-icons";
 import { useRoute } from "@react-navigation/native";
-import CartPage from "../Cart/CartScreen";
-import { styles } from "./styles";
+import { useFavorite } from "../../context/Favorite";
 
 interface Item {
   id: string;
   imageSource: any; // Substitua "any" pelo tipo apropriado para sua imagem
   title: string;
   value: string;
+  category: string;
+  description: string;
 }
 
 const Details = ({ navigation }) => {
@@ -26,7 +28,27 @@ const Details = ({ navigation }) => {
   const [isHeartClicked, setIsHeartClicked] = useState(false);
 
   const route = useRoute();
-  const { id, imageSource, title, value } = route.params as Item;
+  const { id, imageSource, title, value, category, description } =
+    route.params as Item;
+
+  const { favoriteItems, addFavorite, deletefavorite } = useFavorite();
+
+  const handleHeartClick = () => {
+    // Inverte o estado atual
+    setIsHeartClicked(!isHeartClicked);
+
+    const item = {
+      id,
+      imageSource,
+      title,
+      value,
+    };
+    addFavorite(item);
+
+    if (isHeartClicked) {
+      deletefavorite(id);
+    }
+  };
 
   const handleAddToCart = () => {
     const item = {
@@ -34,7 +56,7 @@ const Details = ({ navigation }) => {
       imageSource,
       title,
       value,
-      quantity: quantity.toString(), // Converta para string antes de adicionar ao carrinho
+      quantity: quantity.toString(),
     };
     navigation.navigate("Cart", { cartItems: [item] });
   };
@@ -47,12 +69,6 @@ const Details = ({ navigation }) => {
 
   const handleIncreaseQuantity = () => {
     setQuantity(quantity + 1);
-  };
-
-  // Função para lidar com o clique no botão de coração
-  const handleHeartClick = () => {
-    // Inverte o estado atual
-    setIsHeartClicked(!isHeartClicked);
   };
 
   // Nome do ícone com base no estado isHeartClicked
@@ -87,20 +103,20 @@ const Details = ({ navigation }) => {
 
           {/* Imagem do produto */}
           <Image
-            source={imageSource}
+            source={{ uri: imageSource }}
             style={styles.productImage}
             resizeMode="cover"
           />
 
           <View style={styles.textproduct}>
-            <Text style={styles.productName2}>{title}</Text>
+            <Text style={styles.productName2}>{category}</Text>
 
             {/* Nome do produto */}
             <Text style={styles.productName}>{title}</Text>
           </View>
 
           <View style={styles.stylecontainerprice}>
-            <Text style={styles.productPrice}>$ {value}</Text>
+            <Text style={styles.productPrice}>R$ {value}</Text>
 
             {/* Quantidade */}
             <View style={styles.quantityContainer}>
@@ -119,24 +135,13 @@ const Details = ({ navigation }) => {
           </View>
 
           <View style={styles.productDescriptioncentrilize}>
-            <Text style={styles.productDescription}>
-              Introducing the EverGreenElegance Plastic Plant Pot – the perfect
-              fusion of functionality and aesthetic appeal for your indoor and
-              outdoor gardening needs. Crafted with precision and designed to
-              elevate your greenery game, this plant pot is a must-have for any
-              plant enthusiast. With the EverGreenElegance Plastic Plant Pot,
-              you can transform any space into a lush oasis of greenery. Whether
-              you're a seasoned gardener or just starting your plant journey,
-              this pot is your trusted companion for nurturing and showcasing
-              your beloved plants. Elevate your gardening experience with the
-              EverGreenElegance Plastic Plant Pot today!
-            </Text>
+            <Text style={styles.productDescription}>{description}</Text>
           </View>
         </ScrollView>
         <View style={styles.footer}>
           <View style={styles.footerPrice}>
-            <Text style={styles.totalPrice}>Total price</Text>
-            <Text style={styles.totalPrice2}>$ {totalPrice}</Text>
+            <Text style={styles.totalPrice}>Total: R$</Text>
+            <Text style={styles.totalPrice2}>R$ {totalPrice}</Text>
           </View>
           <TouchableOpacity
             onPress={handleAddToCart}

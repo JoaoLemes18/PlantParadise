@@ -54,6 +54,7 @@ export const styles = StyleSheet.create({
   },
   selectedButton: {
     backgroundColor: "none",
+    color: "#141414",
   },
   selectedButtonText: {
     color: "#141414", // Texto branco para o botão selecionado
