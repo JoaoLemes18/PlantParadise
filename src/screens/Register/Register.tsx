@@ -8,6 +8,8 @@ import {
   TextInput,
 } from "react-native";
 import { styles } from "./styles";
+import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
+
 import ButtonComponent from "../../components/Button/button";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../firebase/config";
@@ -54,42 +56,44 @@ export default function RegisterPage({ navigation }: { navigation: any }) {
   }
 
   return (
-    <ImageBackground
-      source={require("../../../assets/loginimage.png")}
-      resizeMode="cover"
-      style={styles.container}
-    >
-      <View style={styles.boxInicial}>
-        <View style={styles.HeaderBox}>
-          <Text style={styles.textHeader}>Create a new {"\n"}account!</Text>
-          <Text></Text>
+    <KeyboardAwareScrollView contentContainerStyle={{ flexGrow: 1 }}>
+      <ImageBackground
+        source={require("../../../assets/loginimage.png")}
+        resizeMode="cover"
+        style={styles.container}
+      >
+        <View style={styles.boxInicial}>
+          <View style={styles.HeaderBox}>
+            <Text style={styles.textHeader}>Create a new {"\n"}account!</Text>
+            <Text></Text>
+          </View>
+
+          <View style={styles.HeaderButtons}>
+            <TextInput
+              style={styles.TextInput}
+              onChangeText={(email) => setEmail(email)}
+              placeholder="Enter a email"
+            />
+
+            <TextInput
+              style={styles.TextInput}
+              onChangeText={(password) => setPassword(password)}
+              secureTextEntry
+              placeholder="Enter a password"
+            />
+
+            <ButtonComponent
+              onPress={Register}
+              text={"Register"}
+              style={styles.TextInput}
+            />
+
+            <TouchableOpacity onPress={() => navigation.navigate("Initial")}>
+              <Text>Back to initial</Text>
+            </TouchableOpacity>
+          </View>
         </View>
-
-        <View style={styles.HeaderButtons}>
-          <TextInput
-            style={styles.TextInput}
-            onChangeText={(email) => setEmail(email)}
-            placeholder="Enter a email"
-          />
-
-          <TextInput
-            style={styles.TextInput}
-            onChangeText={(password) => setPassword(password)}
-            secureTextEntry
-            placeholder="Enter a password"
-          />
-
-          <ButtonComponent
-            onPress={Register}
-            text={"Register"}
-            style={styles.TextInput}
-          />
-
-          <TouchableOpacity onPress={() => navigation.navigate("Initial")}>
-            <Text>Back to initial</Text>
-          </TouchableOpacity>
-        </View>
-      </View>
-    </ImageBackground>
+      </ImageBackground>
+    </KeyboardAwareScrollView>
   );
 }

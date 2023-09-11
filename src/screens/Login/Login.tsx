@@ -7,6 +7,8 @@ import {
   TextInput,
   SafeAreaView,
 } from "react-native";
+import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
+
 import { styles } from "./styles";
 import ButtonComponent from "../../components/Button/button";
 import { signInWithEmailAndPassword } from "firebase/auth";
@@ -68,43 +70,45 @@ export default function LoginPage({ navigation }: { navigation: any }) {
   }
 
   return (
-    <ImageBackground
-      source={require("../../../assets/loginimage.png")}
-      resizeMode="cover"
-      style={styles.container}
-    >
-      <Toast />
-      <View style={styles.boxInicial}>
-        <View style={styles.HeaderBox}>
-          <Text style={styles.textHeader}>Hi!</Text>
-          <Text style={styles.text}>Welcome</Text>
+    <KeyboardAwareScrollView contentContainerStyle={{ flexGrow: 1 }}>
+      <ImageBackground
+        source={require("../../../assets/loginimage.png")}
+        resizeMode="cover"
+        style={styles.container}
+      >
+        <Toast />
+        <View style={styles.boxInicial}>
+          <View style={styles.HeaderBox}>
+            <Text style={styles.textHeader}>Hi!</Text>
+            <Text style={styles.text}>Welcome</Text>
+          </View>
+
+          <View style={styles.HeaderButtons}>
+            <TextInput
+              style={styles.TextInput}
+              onChangeText={(email) => setEmail(email)}
+              placeholder="Email..."
+            />
+
+            <TextInput
+              style={styles.TextInput}
+              onChangeText={(password) => setPassword(password)}
+              secureTextEntry
+              placeholder="Password..."
+            />
+
+            <ButtonComponent
+              onPress={Login}
+              text={"Login"}
+              style={styles.TextInput}
+            />
+
+            <TouchableOpacity onPress={() => navigation.navigate("Register")}>
+              <Text>If you don't have an account, click here</Text>
+            </TouchableOpacity>
+          </View>
         </View>
-
-        <View style={styles.HeaderButtons}>
-          <TextInput
-            style={styles.TextInput}
-            onChangeText={(email) => setEmail(email)}
-            placeholder="Email..."
-          />
-
-          <TextInput
-            style={styles.TextInput}
-            onChangeText={(password) => setPassword(password)}
-            secureTextEntry
-            placeholder="Password..."
-          />
-
-          <ButtonComponent
-            onPress={Login}
-            text={"Login"}
-            style={styles.TextInput}
-          />
-
-          <TouchableOpacity onPress={() => navigation.navigate("Register")}>
-            <Text>If you don't have an account, click here</Text>
-          </TouchableOpacity>
-        </View>
-      </View>
-    </ImageBackground>
+      </ImageBackground>
+    </KeyboardAwareScrollView>
   );
 }
