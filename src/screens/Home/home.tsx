@@ -8,7 +8,7 @@ import {
   SafeAreaView,
   ScrollView,
 } from "react-native";
-import CartProvider from "../../context/Cart";
+import { useCart } from "../../context/Cart";
 import HorizontalCard from "../../components/Cards/HorizontalCard/HorizontalCard";
 import { styles } from "./styles";
 import VerticalCard from "../../components/Cards/VerticalCard/VerticalCard";
@@ -23,14 +23,19 @@ const Home = ({ navigation }) => {
     imageSource: string;
     title: string;
   }
+  interface CartItem {
+    id: string;
+    imageSource: string;
+    title: string;
+    value: string;
+    quantity: string;
+  }
 
   const [data, setData] = useState<Item[]>([]);
   const [selectedCategory, setSelectedCategory] = useState("All");
-  const [cartItems, setCartItems] = useState([]);
+  const [cartItems, setCartItems] = useState<CartItem[]>([]);
   const [selectedButton, setSelectedButton] = useState("All");
-  const handleAddToCart = (item) => {
-    setCartItems([...cartItems, item]);
-  };
+  const { addCarts } = useCart();
 
   //API
   useEffect(() => {
@@ -60,6 +65,19 @@ const Home = ({ navigation }) => {
 
     fetchData();
   }, []);
+
+  //Add to cart in HorizontalCard
+  const handleAddToCart = (item: Item) => {
+    const cartItem: CartItem = {
+      id: item.id,
+      imageSource: item.image,
+      title: item.title,
+      value: item.price,
+      quantity: "1", // Você pode definir a quantidade inicial aqui
+    };
+
+    addCarts(cartItem);
+  };
 
   const handleButtonClickcategory = (category) => {
     setSelectedCategory(category);
