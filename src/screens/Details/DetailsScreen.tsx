@@ -116,7 +116,7 @@ const Details = ({ navigation }) => {
           </View>
 
           <View style={styles.stylecontainerprice}>
-            <Text style={styles.productPrice}>R$ {value}</Text>
+            <Text style={styles.productPrice}>$ {value}</Text>
 
             {/* Quantidade */}
             <View style={styles.quantityContainer}>
@@ -140,8 +140,8 @@ const Details = ({ navigation }) => {
         </ScrollView>
         <View style={styles.footer}>
           <View style={styles.footerPrice}>
-            <Text style={styles.totalPrice}>Total: R$</Text>
-            <Text style={styles.totalPrice2}>R$ {totalPrice}</Text>
+            <Text style={styles.totalPrice}>Total:</Text>
+            <Text style={styles.totalPrice2}>$ {totalPrice}</Text>
           </View>
           <TouchableOpacity
             onPress={handleAddToCart}

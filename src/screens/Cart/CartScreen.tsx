@@ -1,19 +1,16 @@
-import React from "react";
-import { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import {
   View,
   Text,
   StyleSheet,
   ScrollView,
   TouchableOpacity,
-  SafeAreaView,
 } from "react-native";
-import { useCart } from "../../context/Cart";
-
-import Toast from "react-native-toast-message";
-import CardCart from "../../components/Cards/cardCart";
+import Footer from "../";
+import CardCart from "../components/cardCart";
 import { useRoute } from "@react-navigation/native";
-import { styles } from "./styles";
+import { useCart } from "../context/cart";
+import Toast from "react-native-toast-message";
 
 export interface CartItem {
   id: string;
@@ -24,7 +21,6 @@ export interface CartItem {
 }
 
 export default function CartPage({ navigation }) {
-  // const [cartItems, setCartItems] = useState<CartItem[]>([]);
   const { cartItems, addCart, addCarts, deletItem } = useCart();
 
   const route = useRoute();
@@ -76,7 +72,7 @@ export default function CartPage({ navigation }) {
       text1: "parabens 👋",
       text2: "compra realizada com sucesso!",
       position: "top",
-      visibilityTime: 9000,
+      visibilityTime: 2000,
       autoHide: true,
       topOffset: 10,
       bottomOffset: 40,
@@ -130,6 +126,8 @@ export default function CartPage({ navigation }) {
           <Text style={styles.checkoutButtonText}>Go to Checkout</Text>
         </TouchableOpacity>
       </View>
+
+      <Footer navigation={navigation} currentPage="Cart" />
     </>
   );
 }

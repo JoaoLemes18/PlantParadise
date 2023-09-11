@@ -12,12 +12,12 @@ const FavoriteContext = createContext<favoriteProps>({} as favoriteProps);
 export const useFavorite = () => {
   const context = useContext(FavoriteContext);
   if (!context) {
-    throw new Error("useCart deve ser usado dentro de um favoriteProvider");
+    throw new Error("useCart deve ser usado dentro de um favorite");
   }
   return context;
 };
 
-const FavoriteProvider = ({ children }: { children: React.ReactNode }) => {
+const Favorite = ({ children }: { children: React.ReactNode }) => {
   const [favoriteItems, setFavoriteItems] = useState<FavoriteItems[]>([]);
 
   const addFavorite = (item: any) => {
@@ -37,4 +37,4 @@ const FavoriteProvider = ({ children }: { children: React.ReactNode }) => {
   );
 };
 
-export default FavoriteProvider;
+export default Favorite;

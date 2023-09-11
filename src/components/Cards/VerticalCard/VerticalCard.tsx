@@ -8,9 +8,11 @@ import {
   Platform,
 } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
+import { useFavorite } from "../../../context/Favorite";
 
 const LongCardButton = ({
   imageSource,
+  id,
   title,
   value,
   onAddToCart,
@@ -18,8 +20,23 @@ const LongCardButton = ({
 }) => {
   const [isHeartClicked, setIsHeartClicked] = useState(false);
 
+  const { favoriteItems, addFavorite, deletefavorite } = useFavorite();
+
   const handleHeartClick = () => {
+    // Inverte o estado atual
     setIsHeartClicked(!isHeartClicked);
+
+    const item = {
+      id,
+      imageSource,
+      title,
+      value,
+    };
+    addFavorite(item);
+
+    if (isHeartClicked) {
+      deletefavorite(id);
+    }
   };
 
   const heartIconName = isHeartClicked ? "heart" : "heart-outline";
@@ -30,7 +47,7 @@ const LongCardButton = ({
       onPress={veiwDetails}
       // Adicione a função de retorno de chamada onPress aqui
     >
-      <Image source={imageSource} style={styles.image} />
+      <Image source={{ uri: imageSource }} style={styles.image} />
 
       <TouchableOpacity
         style={[

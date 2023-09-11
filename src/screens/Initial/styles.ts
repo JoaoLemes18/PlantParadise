@@ -2,9 +2,9 @@ import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
   container: {
-    flex: 1, // Define flex 1 para que ocupe 100% da tela
-    alignItems: "center", // Você pode ajustar isso conforme necessário
-    justifyContent: "flex-end", // Você pode ajustar isso conforme necessário
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "flex-end",
   },
 
   boxInicial: {

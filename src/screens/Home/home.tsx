@@ -19,7 +19,7 @@ const Home = ({ navigation }) => {
     price: any;
     image: any;
     id: string;
-    imageSource: any;
+    imageSource: string;
     title: string;
   }
   const [data, setData] = useState<Item[]>([]);

@@ -13,7 +13,7 @@ export interface FavoriteItems {
   favorite: boolean;
 }
 
-export default function FavoritePage({ navigation }) {
+export default function FavoriteScreen({ navigation }) {
   const { favoriteItems, addFavorite, deletefavorite } = useFavorite();
 
   return (
