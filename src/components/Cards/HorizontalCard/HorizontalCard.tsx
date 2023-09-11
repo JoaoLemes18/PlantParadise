@@ -1,9 +1,16 @@
 import React, { useState } from "react";
-import { View, Text, Image, TouchableOpacity, Platform } from "react-native";
-import { styles } from "./styles";
+import {
+  View,
+  Text,
+  Image,
+  TouchableOpacity,
+  StyleSheet,
+  Platform,
+} from "react-native";
 import { Ionicons } from "@expo/vector-icons"; // Importe o ícone desejado aqui
 import { useFavorite } from "../../../context/Favorite";
 import { FavoriteItems } from "../../../screens/Favorites/FavoriteScreen";
+import { styles } from "./styles";
 
 const HorizontalCard = ({
   navigation,
@@ -12,6 +19,7 @@ const HorizontalCard = ({
   title,
   value,
   veiwDetails,
+  onAddToCart,
 }) => {
   const isIOS = Platform.OS === "ios";
 
@@ -69,7 +77,10 @@ const HorizontalCard = ({
 
         <Text style={styles.value}>${value}</Text>
 
-        <TouchableOpacity onPress={veiwDetails} style={styles.button}>
+        <TouchableOpacity
+          onPress={() => onAddToCart(id, title, value)}
+          style={styles.button}
+        >
           <Text style={styles.buttonText}>Add to Cart</Text>
         </TouchableOpacity>
       </View>

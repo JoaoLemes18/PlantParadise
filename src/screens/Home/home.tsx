@@ -8,6 +8,7 @@ import {
   SafeAreaView,
   ScrollView,
 } from "react-native";
+import CartProvider from "../../context/Cart";
 import HorizontalCard from "../../components/Cards/HorizontalCard/HorizontalCard";
 import { styles } from "./styles";
 import VerticalCard from "../../components/Cards/VerticalCard/VerticalCard";
@@ -22,11 +23,16 @@ const Home = ({ navigation }) => {
     imageSource: string;
     title: string;
   }
+
   const [data, setData] = useState<Item[]>([]);
   const [selectedCategory, setSelectedCategory] = useState("All");
-
+  const [cartItems, setCartItems] = useState([]);
   const [selectedButton, setSelectedButton] = useState("All");
+  const handleAddToCart = (item) => {
+    setCartItems([...cartItems, item]);
+  };
 
+  //API
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -85,10 +91,22 @@ const Home = ({ navigation }) => {
               renderItem={({ item }) => (
                 <View style={styles.cardContainer}>
                   <HorizontalCard
+                    veiwDetails={() =>
+                      navigation.navigate("Details", {
+                        id: item.id,
+                        imageSource: item.image,
+                        title: item.title,
+                        value: item.price,
+                        category: item.category,
+                        description: item.description,
+                      })
+                    }
+                    id={item.id}
+                    imageSource={item.image}
+                    onAddToCart={() => handleAddToCart(item)}
                     title={item.title}
-                    imageSource={{ uri: item.imageSource }}
                     value={item.price}
-                    onAddToCart={() => console.log("adicionado ao carrinho")}
+                    navigation={navigation}
                   />
                 </View>
               )}
