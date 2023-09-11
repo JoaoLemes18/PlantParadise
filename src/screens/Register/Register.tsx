@@ -85,7 +85,7 @@ export default function RegisterPage({ navigation }: { navigation: any }) {
             style={styles.TextInput}
           />
 
-          <TouchableOpacity onPress={() => navigation.navigate("initialPage")}>
+          <TouchableOpacity onPress={() => navigation.navigate("Initial")}>
             <Text>Back to initial</Text>
           </TouchableOpacity>
         </View>

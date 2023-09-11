@@ -24,6 +24,7 @@ export function TabRoutes() {
           options={{
             headerShown: false,
             tabBarButton: () => null,
+            tabBarStyle: { display: "none" },
           }}
         />
         <Tab.Screen
@@ -31,11 +32,8 @@ export function TabRoutes() {
           component={Register}
           options={{
             headerShown: false,
-            tabBarActiveTintColor: "#418B64",
-            tabBarInactiveTintColor: "#000",
-            tabBarIcon: ({ color }) => (
-              <Icon name="home" size={20} color={color} />
-            ),
+            tabBarButton: () => null,
+            tabBarStyle: { display: "none" },
           }}
         />
         <Tab.Screen
@@ -43,11 +41,8 @@ export function TabRoutes() {
           component={Login}
           options={{
             headerShown: false,
-            tabBarActiveTintColor: "#418B64",
-            tabBarInactiveTintColor: "#000",
-            tabBarIcon: ({ color }) => (
-              <Icon name="home" size={20} color={color} />
-            ),
+            tabBarButton: () => null,
+            tabBarStyle: { display: "none" },
           }}
         />
         <Tab.Screen
@@ -67,11 +62,8 @@ export function TabRoutes() {
           component={Details}
           options={{
             headerShown: false,
-            tabBarActiveTintColor: "#418B64",
-            tabBarInactiveTintColor: "#000",
-            tabBarIcon: ({ color }) => (
-              <Icon name="home" size={20} color={color} />
-            ),
+            tabBarButton: () => null,
+            tabBarStyle: { display: "none" },
           }}
         />
         <Tab.Screen
