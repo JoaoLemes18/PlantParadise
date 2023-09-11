@@ -23,11 +23,7 @@ export function TabRoutes() {
           component={Initial}
           options={{
             headerShown: false,
-            tabBarActiveTintColor: "#418B64",
-            tabBarInactiveTintColor: "#000",
-            tabBarIcon: ({ color }) => (
-              <Icon name="home" size={20} color={color} />
-            ),
+            tabBarButton: () => null,
           }}
         />
         <Tab.Screen

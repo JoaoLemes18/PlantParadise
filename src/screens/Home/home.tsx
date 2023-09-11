@@ -2,17 +2,18 @@ import React, { useState } from "react";
 import {
   View,
   Text,
+  StyleSheet,
   Image,
   FlatList,
+  Dimensions,
   TouchableOpacity,
+  SafeAreaView,
   ScrollView,
 } from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
-
 import HorizontalCard from "../../components/Cards/HorizontalCard/HorizontalCard";
-
-import VerticalCard from "../../components/Cards/VerticalCard/VerticalCard";
 import { styles } from "./styles";
+import VerticalCard from "../../components/Cards/VerticalCard/VerticalCard";
+
 const Home = ({ navigation }) => {
   const data: Item[] = [
     {
@@ -63,19 +64,19 @@ const Home = ({ navigation }) => {
   const dataLongCard: Item[] = [
     {
       id: "1",
-      imageSource: require("../../../assets/imagelongcard.png"),
+      imageSource: require("../../../assets/cardgrande.png"),
       title: "Green Vines",
       value: "9.20",
     },
     {
       id: "2",
-      imageSource: require("../../../assets/imagelongcard.png"),
+      imageSource: require("../../../assets/cardgrande.png"),
       title: "Another Item",
       value: "12.99",
     },
     {
       id: "3",
-      imageSource: require("../../../assets/imagelongcard.png"),
+      imageSource: require("../../../assets/cardgrande.png"),
       title: "Yet Another Item",
       value: "7.50",
     },
@@ -89,14 +90,19 @@ const Home = ({ navigation }) => {
 
   return (
     <>
-      <SafeAreaView style={styles.container}>
+      <SafeAreaView>
         <ScrollView style={styles.container}>
           <View style={styles.content}>
             <Text style={styles.usertext}>Hi, John</Text>
-            <Image source={require("../../../assets/userimage.png")} />
+
+            <TouchableOpacity
+              onPress={() => navigation.navigate("UserProfile")}
+            >
+              <Image source={require("../../../assets/userimage.png")} />
+            </TouchableOpacity>
           </View>
 
-          <View style={styles.flatlistVertical}>
+          <View style={styles.flatlistVerticalText}>
             <Text style={styles.flatlistVerticalText}>Most popular</Text>
 
             <FlatList

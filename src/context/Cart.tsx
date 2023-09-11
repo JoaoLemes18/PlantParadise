@@ -6,6 +6,7 @@ interface cartProps {
   addCart: (item: any) => void;
   addCarts: (items: CartItem) => void;
   deletItem: (itemId: string) => void;
+  putquantity: (itemId: string, quantity: number) => void;
 }
 
 const CartContext = createContext<cartProps>({} as cartProps);
@@ -36,13 +37,21 @@ const CartProvider = ({ children }: { children: React.ReactNode }) => {
   }
 
   function putquantity(id: string, quantity: number) {
-    const atualizarItem = cartItems.filter((item) => item.id == id);
-    atualizarItem[0].quantity = quantity.toString();
-    setCartItems(atualizarItem);
+    console.log(quantity);
+    setCartItems(
+      cartItems.map((item) => {
+        if (item.id === id) {
+          item.quantity = quantity.toString();
+        }
+        return item;
+      })
+    );
   }
 
   return (
-    <CartContext.Provider value={{ cartItems, addCart, addCarts, deletItem }}>
+    <CartContext.Provider
+      value={{ cartItems, addCart, addCarts, deletItem, putquantity }}
+    >
       {children}
     </CartContext.Provider>
   );

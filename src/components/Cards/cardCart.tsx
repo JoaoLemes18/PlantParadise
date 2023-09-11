@@ -8,26 +8,28 @@ import {
   Platform,
 } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
+import { useCart } from "../../context/Cart";
 
-const CardCart = ({ imageSource, title, value, quantity }) => {
-  const [cardQuantity, setCardQuantity] = useState(quantity);
+const CardCart = ({ imageSource, title, value, quantity, onremove, id }) => {
+  const [cardQuantity, setCardQuantity] = useState(Number(quantity));
   const [showTrashButton, setShowTrashButton] = useState(quantity === 1);
+
+  const { cartItems, addCart, addCarts, deletItem, putquantity } = useCart();
 
   const handleIncrease = () => {
     setCardQuantity(cardQuantity + 1);
+    putquantity(id, cardQuantity + 1);
+
     setShowTrashButton(false);
   };
 
   const handleDecrease = () => {
     if (cardQuantity > 1) {
       setCardQuantity(cardQuantity - 1);
+      putquantity(id, cardQuantity - 1);
     } else {
       setShowTrashButton(true);
     }
-  };
-
-  const handleDelete = () => {
-    console.log("Card excluído");
   };
 
   return (
@@ -36,12 +38,15 @@ const CardCart = ({ imageSource, title, value, quantity }) => {
 
       <View style={styles.textContainer}>
         <Text style={styles.title}>{title}</Text>
-        <Text style={styles.value}>{value}</Text>
+        <Text style={styles.value}>R$ {value}</Text>
       </View>
 
       <View style={styles.buttonContainer}>
         {showTrashButton ? (
-          <TouchableOpacity style={styles.trashButton} onPress={handleDelete}>
+          <TouchableOpacity
+            style={styles.trashButton}
+            onPress={() => onremove(id)}
+          >
             <Ionicons name="trash-outline" size={20} color="red" />
           </TouchableOpacity>
         ) : (
@@ -56,7 +61,12 @@ const CardCart = ({ imageSource, title, value, quantity }) => {
         <Text style={styles.quantityText}>{cardQuantity}</Text>
 
         <TouchableOpacity style={styles.actionButton} onPress={handleIncrease}>
-          <Ionicons name="add-outline" size={20} color="white" />
+          <Ionicons
+            name="add-outline"
+            size={20}
+            color="white"
+            onPress={handleIncrease}
+          />
         </TouchableOpacity>
       </View>
     </View>

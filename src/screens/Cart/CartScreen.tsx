@@ -14,6 +14,7 @@ import Toast from "react-native-toast-message";
 import CardCart from "../../components/Cards/cardCart";
 import { useRoute } from "@react-navigation/native";
 import { styles } from "./styles";
+
 export interface CartItem {
   id: string;
   imageSource: any;
