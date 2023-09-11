@@ -4,6 +4,9 @@ export const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
+  SafeAereaContainer: {
+    flex: 1,
+  },
   header: {
     paddingHorizontal: 16,
     backgroundColor: "#fff",
@@ -27,6 +30,7 @@ export const styles = StyleSheet.create({
   },
   productName: {
     fontSize: 24,
+    top: 6,
     fontWeight: "bold",
     marginBottom: 30,
   },
@@ -35,13 +39,14 @@ export const styles = StyleSheet.create({
     color: "#9c9c9c",
   },
   productPrice: {
-    fontSize: 16,
-    marginBottom: 8,
+    fontSize: 22,
+    fontWeight: "bold",
+    bottom: 10,
   },
   quantityContainer: {
     flexDirection: "row",
     alignItems: "center",
-    marginBottom: 10,
+    bottom: 10,
   },
   stylecontainerprice: {
     flexDirection: "row",
@@ -54,7 +59,7 @@ export const styles = StyleSheet.create({
   },
   productDescription: {
     fontSize: 14,
-    marginBottom: 16,
+    top: 10,
     width: "90%",
     color: "#969595",
   },
@@ -71,7 +76,7 @@ export const styles = StyleSheet.create({
   },
   totalPrice: {
     fontSize: 14,
-    color: "#969595",
+    color: "#000",
   },
   totalPrice2: {
     fontSize: 18,
@@ -80,11 +85,16 @@ export const styles = StyleSheet.create({
   addToCartButton: {
     backgroundColor: "#418B64",
     paddingHorizontal: 16,
+    width: 114,
+    height: 48,
     paddingVertical: 8,
     borderRadius: 8,
   },
   addToCartButtonText: {
     color: "#FFF",
+    top: 7,
+    alignItems: "center",
+    textAlign: "center",
     fontSize: 16,
   },
   favoriteButton: {

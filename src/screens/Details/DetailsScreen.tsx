@@ -4,6 +4,7 @@ import {
   Text,
   StyleSheet,
   Image,
+  SafeAreaView,
   TouchableOpacity,
   ScrollView,
   Platform,
@@ -61,93 +62,92 @@ const Details = ({ navigation }) => {
 
   return (
     <>
-      <ScrollView style={styles.container}>
-        {/* Header */}
-        <View style={styles.header}>
-          <TouchableOpacity onPress={() => navigation.goBack()}>
-            <Ionicons name="arrow-back" size={24} color="#000" />
-          </TouchableOpacity>
-          <Text style={styles.headerText}>Detalhes</Text>
-          <TouchableOpacity
-            style={[
-              styles.favoriteButton,
-              isHeartClicked && styles.heartButtonClicked,
-            ]}
-            onPress={handleHeartClick}
-          >
-            <Ionicons
-              name={heartIconName}
-              size={24}
-              color={isHeartClicked ? "#418B64" : "#000"}
-            />
-          </TouchableOpacity>
-        </View>
-
-        {/* Imagem do produto */}
-        <Image
-          source={imageSource}
-          style={styles.productImage}
-          resizeMode="cover"
-        />
-
-        <View style={styles.textproduct}>
-          <Text style={styles.productName2}>{title}</Text>
-
-          {/* Nome do produto */}
-          <Text style={styles.productName}>{title}</Text>
-        </View>
-
-        <View style={styles.stylecontainerprice}>
-          <Text style={styles.productPrice}>R$ {value}</Text>
-
-          {/* Quantidade */}
-          <View style={styles.quantityContainer}>
-            <TouchableOpacity onPress={handleDecreaseQuantity}>
+      <SafeAreaView style={styles.SafeAereaContainer}>
+        <ScrollView style={styles.container}>
+          {/* Header */}
+          <View style={styles.header}>
+            <TouchableOpacity onPress={() => navigation.goBack()}>
+              <Ionicons name="arrow-back" size={24} color="#000" />
+            </TouchableOpacity>
+            <Text style={styles.headerText}>Details</Text>
+            <TouchableOpacity
+              style={[
+                styles.favoriteButton,
+                isHeartClicked && styles.heartButtonClicked,
+              ]}
+              onPress={handleHeartClick}
+            >
               <Ionicons
-                name="remove-circle-outline"
+                name={heartIconName}
                 size={24}
-                color="#418B64"
+                color={isHeartClicked ? "#418B64" : "#000"}
               />
             </TouchableOpacity>
-            <Text style={styles.quantityText}>{quantity}</Text>
-            <TouchableOpacity onPress={handleIncreaseQuantity}>
-              <Ionicons name="add-circle" size={24} color="#418B64" />
-            </TouchableOpacity>
           </View>
-        </View>
 
-        <View style={styles.productDescriptioncentrilize}>
-          <Text style={styles.productDescription}>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore
-            praesentium exercitationem voluptate minus alias. Voluptatem
-            voluptatum alias quod culpa nam suscipit, quas dicta at sunt quaerat
-            perspiciatis doloribus praesentium repellendus?. Lorem ipsum dolor
-            sit amet, consectetur adipisicing elit. Dolore praesentium
-            exercitationem voluptate minus alias. Voluptatem voluptatum alias
-            quod culpa nam suscipit, quas dicta at sunt quaerat perspiciatis
-            doloribus praesentium repellendus?. Lorem ipsum dolor sit amet,
-            consectetur adipisicing elit. Dolore praesentium exercitationem
-            voluptate minus alias. Voluptatem voluptatum alias quod culpa nam
-            suscipit, quas dicta at sunt quaerat perspiciatis doloribus
-            praesentium repellendus?.
-          </Text>
+          {/* Imagem do produto */}
+          <Image
+            source={imageSource}
+            style={styles.productImage}
+            resizeMode="cover"
+          />
+
+          <View style={styles.textproduct}>
+            <Text style={styles.productName2}>{title}</Text>
+
+            {/* Nome do produto */}
+            <Text style={styles.productName}>{title}</Text>
+          </View>
+
+          <View style={styles.stylecontainerprice}>
+            <Text style={styles.productPrice}>$ {value}</Text>
+
+            {/* Quantidade */}
+            <View style={styles.quantityContainer}>
+              <TouchableOpacity onPress={handleDecreaseQuantity}>
+                <Ionicons
+                  name="remove-circle-outline"
+                  size={24}
+                  color="#418B64"
+                />
+              </TouchableOpacity>
+              <Text style={styles.quantityText}>{quantity}</Text>
+              <TouchableOpacity onPress={handleIncreaseQuantity}>
+                <Ionicons name="add-circle" size={24} color="#418B64" />
+              </TouchableOpacity>
+            </View>
+          </View>
+
+          <View style={styles.productDescriptioncentrilize}>
+            <Text style={styles.productDescription}>
+              Introducing the EverGreenElegance Plastic Plant Pot – the perfect
+              fusion of functionality and aesthetic appeal for your indoor and
+              outdoor gardening needs. Crafted with precision and designed to
+              elevate your greenery game, this plant pot is a must-have for any
+              plant enthusiast. With the EverGreenElegance Plastic Plant Pot,
+              you can transform any space into a lush oasis of greenery. Whether
+              you're a seasoned gardener or just starting your plant journey,
+              this pot is your trusted companion for nurturing and showcasing
+              your beloved plants. Elevate your gardening experience with the
+              EverGreenElegance Plastic Plant Pot today!
+            </Text>
+          </View>
+        </ScrollView>
+        <View style={styles.footer}>
+          <View style={styles.footerPrice}>
+            <Text style={styles.totalPrice}>Total price</Text>
+            <Text style={styles.totalPrice2}>$ {totalPrice}</Text>
+          </View>
+          <TouchableOpacity
+            onPress={handleAddToCart}
+            style={styles.addToCartButton}
+          >
+            <Text style={styles.addToCartButtonText}>Add to cart</Text>
+          </TouchableOpacity>
         </View>
-      </ScrollView>
-      <View style={styles.footer}>
-        <View style={styles.footerPrice}>
-          <Text style={styles.totalPrice}>Total: R$</Text>
-          <Text style={styles.totalPrice2}>R$ {totalPrice}</Text>
-        </View>
-        <TouchableOpacity
-          onPress={handleAddToCart}
-          style={styles.addToCartButton}
-        >
-          <Text style={styles.addToCartButtonText}>Add to cart</Text>
-        </TouchableOpacity>
-      </View>
+      </SafeAreaView>
     </>
   );
 };
-
 
 export default Details;

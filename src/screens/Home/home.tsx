@@ -2,10 +2,8 @@ import React, { useState } from "react";
 import {
   View,
   Text,
-  StyleSheet,
   Image,
   FlatList,
-  Dimensions,
   TouchableOpacity,
   SafeAreaView,
   ScrollView,
