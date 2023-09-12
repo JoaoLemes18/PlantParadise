@@ -18,26 +18,28 @@ export default function FavoriteScreen({ navigation }) {
 
   return (
     <>
-      <ScrollView style={{ flex: 1 }}>
-        <View style={styles.content}>
-          <Text style={styles.usertext}>Favorites</Text>
-        </View>
+      <SafeAreaView style={{ flex: 1 }}>
+        <ScrollView style={{ flex: 1 }}>
+          <View style={styles.content}>
+            <Text style={styles.usertext}>Favorites</Text>
+          </View>
 
-        <View style={styles.contentContainer}>
-          {/* Adicione os itens favoritos aqui */}
+          <View style={styles.contentContainer}>
+            {/* Adicione os itens favoritos aqui */}
 
-          {favoriteItems.map((item, index) => (
-            <StickCard
-              id={item.id}
-              key={index}
-              imageSource={item.imageSource}
-              title={item.title}
-              value={item.value}
-              isFavorite={item.favorite}
-            />
-          ))}
-        </View>
-      </ScrollView>
+            {favoriteItems.map((item, index) => (
+              <StickCard
+                id={item.id}
+                key={index}
+                imageSource={item.imageSource}
+                title={item.title}
+                value={item.value}
+                isFavorite={item.favorite}
+              />
+            ))}
+          </View>
+        </ScrollView>
+      </SafeAreaView>
     </>
   );
 }

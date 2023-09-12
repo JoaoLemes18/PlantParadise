@@ -3,6 +3,7 @@ import {
   View,
   Text,
   StyleSheet,
+  SafeAreaView,
   ScrollView,
   TouchableOpacity,
 } from "react-native";
@@ -69,8 +70,8 @@ export default function CartScreen({ navigation }) {
   const showToastsuccess = () => {
     Toast.show({
       type: "success",
-      text1: "parabens 👋",
-      text2: "compra realizada com sucesso!",
+      text1: "😍😍😍",
+      text2: "Congratulations on your purchase, come back often!!",
       position: "top",
       visibilityTime: 2000,
       autoHide: true,
@@ -87,45 +88,47 @@ export default function CartScreen({ navigation }) {
 
   return (
     <>
-      <ScrollView style={{ flex: 1, height: "100%" }} scrollEnabled={true}>
-        <View style={styles.content}>
-          <Text style={styles.usertext}>Cart</Text>
+      <SafeAreaView style={{ flex: 1 }}>
+        <ScrollView style={{ flex: 1, height: "100%" }} scrollEnabled={true}>
+          <View style={styles.content}>
+            <Text style={styles.usertext}>Cart</Text>
+          </View>
+
+          <Toast />
+
+          <View style={styles.contentContainer}>
+            {/* Renderizar os itens do carrinho */}
+
+            {cartItems.map((item, index) => (
+              <CardCart
+                id={item.id}
+                key={index}
+                imageSource={item.imageSource}
+                title={item.title}
+                value={item.value}
+                quantity={item.quantity}
+                onremove={removeFromCart}
+              />
+            ))}
+          </View>
+        </ScrollView>
+
+        <View style={styles.centralize}>
+          {/* Subtotal */}
+          <View style={styles.subtotalContainer}>
+            <Text style={styles.subtotalText}>Subtotal </Text>
+            <Text style={styles.subtotalText2}>R$ {calculateSubtotal()}</Text>
+          </View>
+
+          {/* Botão de finalizar compra */}
+          <TouchableOpacity
+            style={styles.checkoutButton}
+            onPress={handleCheckout}
+          >
+            <Text style={styles.checkoutButtonText}>Go to Checkout</Text>
+          </TouchableOpacity>
         </View>
-
-        <Toast />
-
-        <View style={styles.contentContainer}>
-          {/* Renderizar os itens do carrinho */}
-
-          {cartItems.map((item, index) => (
-            <CardCart
-              id={item.id}
-              key={index}
-              imageSource={item.imageSource}
-              title={item.title}
-              value={item.value}
-              quantity={item.quantity}
-              onremove={removeFromCart}
-            />
-          ))}
-        </View>
-      </ScrollView>
-
-      <View style={styles.centralize}>
-        {/* Subtotal */}
-        <View style={styles.subtotalContainer}>
-          <Text style={styles.subtotalText}>Subtotal </Text>
-          <Text style={styles.subtotalText2}>R$ {calculateSubtotal()}</Text>
-        </View>
-
-        {/* Botão de finalizar compra */}
-        <TouchableOpacity
-          style={styles.checkoutButton}
-          onPress={handleCheckout}
-        >
-          <Text style={styles.checkoutButtonText}>Go to Checkout</Text>
-        </TouchableOpacity>
-      </View>
+      </SafeAreaView>
     </>
   );
 }

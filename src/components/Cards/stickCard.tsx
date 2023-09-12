@@ -28,7 +28,6 @@ const StickCard = ({ imageSource, title, value, isFavorite }) => {
       </View>
 
       <View style={styles.buttonFavorite}>
-        {/* Botão de coração */}
         <TouchableOpacity
           style={[
             styles.heartButton,
@@ -36,7 +35,6 @@ const StickCard = ({ imageSource, title, value, isFavorite }) => {
           ]}
           onPress={handleHeartClick}
         >
-          {/* Use o componente Ionicons para o ícone de coração */}
           <Ionicons
             name={heartIconName}
             size={20}

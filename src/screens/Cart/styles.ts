@@ -52,6 +52,7 @@ export const styles = StyleSheet.create({
 
   centralize: {
     // flex: 1,
+    bottom: 15,
     justifyContent: "flex-end",
     alignItems: "center",
   },

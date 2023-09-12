@@ -73,7 +73,7 @@ const Home = ({ navigation }) => {
       imageSource: item.image,
       title: item.title,
       value: item.price,
-      quantity: "1", // Você pode definir a quantidade inicial aqui
+      quantity: "1",
     };
 
     addCarts(cartItem);
