@@ -45,7 +45,9 @@ const UserProfile = () => {
 
       <View style={styles.content}>
         {/* Ícone de usuário */}
-        <AntDesign name="user" size={100} color="black" />
+        <View style={styles.userimage}>
+          <AntDesign name="user" size={100} color="black" />
+        </View>
         <Text style={styles.name}>{user?.displayName}</Text>
         <Text style={styles.email}> {user?.email}</Text>
       </View>
@@ -84,13 +86,16 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
   },
+  userimage: {
+    bottom: 20,
+  },
   logoutButton: {
     alignItems: "center",
     padding: 16,
     bottom: 230,
   },
   logoutText: {
-    fontSize: 18,
+    fontSize: 24,
     color: "red",
   },
   name: {

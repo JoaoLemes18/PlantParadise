@@ -26,7 +26,7 @@ export default function RegisterPage({ navigation }: { navigation: any }) {
       text1: "Congratulations🎉🥳",
       text2: "Welcome to app!",
       position: "top",
-      visibilityTime: 5000,
+      visibilityTime: 3000,
       autoHide: true,
       topOffset: 10,
       bottomOffset: 60,
