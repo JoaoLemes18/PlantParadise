@@ -3,10 +3,12 @@ import { CartItem } from "../screens/Cart/CartScreen";
 
 interface cartProps {
   cartItems: CartItem[];
+  showIndicator: boolean;
   addCart: (item: any) => void;
   addCarts: (items: CartItem) => void;
   deletItem: (itemId: string) => void;
   putquantity: (itemId: string, quantity: number) => void;
+  setShowIndicator: (show: boolean) => void;
 }
 
 const CartContext = createContext<cartProps>({} as cartProps);
@@ -21,6 +23,7 @@ export const useCart = () => {
 
 const CartProvider = ({ children }: { children: React.ReactNode }) => {
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
+  const [showIndicator, setShowIndicator] = useState(false); // Inicialmente, o indicador não está visível
 
   function addCart(Item: any) {
     setCartItems(Item);
@@ -29,6 +32,7 @@ const CartProvider = ({ children }: { children: React.ReactNode }) => {
   function addCarts(Items: any) {
     console.log(Items);
     setCartItems([...cartItems, Items]);
+    setShowIndicator(true);
   }
 
   function deletItem(id: string) {
@@ -50,7 +54,15 @@ const CartProvider = ({ children }: { children: React.ReactNode }) => {
 
   return (
     <CartContext.Provider
-      value={{ cartItems, addCart, addCarts, deletItem, putquantity }}
+      value={{
+        cartItems,
+        addCart,
+        addCarts,
+        deletItem,
+        putquantity,
+        setShowIndicator,
+        showIndicator,
+      }}
     >
       {children}
     </CartContext.Provider>

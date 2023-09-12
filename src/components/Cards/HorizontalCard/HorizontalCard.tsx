@@ -9,6 +9,7 @@ import {
 } from "react-native";
 import { Ionicons } from "@expo/vector-icons"; // Importe o ícone desejado aqui
 import { useFavorite } from "../../../context/Favorite";
+import Toast from "react-native-toast-message";
 import { FavoriteItems } from "../../../screens/Favorites/FavoriteScreen";
 import { styles } from "./styles";
 
@@ -23,12 +24,27 @@ const HorizontalCard = ({
 }) => {
   const isIOS = Platform.OS === "ios";
 
-  // Estado local para controlar se o botão de coração foi clicado
   const [isHeartClicked, setIsHeartClicked] = useState(false);
 
   const { favoriteItems, addFavorite, deletefavorite } = useFavorite();
 
-  // Função para lidar com o clique no botão de coração
+  const handleAddToCart = () => {
+    onAddToCart(id, title, value);
+
+    const showToastsuccess = () => {
+      Toast.show({
+        type: "success",
+        text1: "😍😍😍",
+        text2: "Congratulations on your purchase, come back often!!",
+        position: "top",
+        visibilityTime: 3000,
+        autoHide: true,
+        topOffset: 10,
+        bottomOffset: 40,
+        keyboardOffset: 10,
+      });
+    };
+  };
   const handleHeartClick = () => {
     // Inverte o estado atual
     setIsHeartClicked(!isHeartClicked);

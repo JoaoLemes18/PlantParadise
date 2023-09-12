@@ -5,7 +5,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import Home from "../screens/Home/home";
 import Favorites from "../screens/Favorites/FavoriteScreen";
 import Cart from "../screens/Cart/CartScreen";
-import Icon from "react-native-vector-icons/FontAwesome"; // Importe o pacote de ícones FontAwesome
+import Icon from "react-native-vector-icons/FontAwesome";
 import Initial from "../screens/Initial/Initial";
 import Details from "../screens/Details/DetailsScreen";
 
