@@ -34,7 +34,7 @@ const CardCart = ({ imageSource, title, value, quantity, onremove, id }) => {
 
   return (
     <View style={styles.container}>
-      <Image source={imageSource} style={styles.image} />
+      <Image source={{ uri: imageSource }} style={styles.image} />
 
       <View style={styles.textContainer}>
         <Text style={styles.title}>{title}</Text>
@@ -83,6 +83,7 @@ const styles = StyleSheet.create({
     marginBottom: 16,
   },
   image: {
+    borderRadius: 8,
     width: 100,
     height: "100%",
     marginRight: 10,
