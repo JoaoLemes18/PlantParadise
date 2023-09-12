@@ -19,6 +19,7 @@ export default function App() {
         <FavoriteProvider>
           <StatusBar />
           <TabRoutes />
+          <FontProvider />
         </FavoriteProvider>
       </CartProvider>
     </>
