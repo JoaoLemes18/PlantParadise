@@ -25,10 +25,10 @@ export default function RegisterPage({ navigation }: { navigation: any }) {
       text1: "Congratulations🎉🥳",
       text2: "Welcome to app!",
       position: "top",
-      visibilityTime: 9000,
+      visibilityTime: 5000,
       autoHide: true,
       topOffset: 10,
-      bottomOffset: 40,
+      bottomOffset: 60,
       keyboardOffset: 10,
     });
   };

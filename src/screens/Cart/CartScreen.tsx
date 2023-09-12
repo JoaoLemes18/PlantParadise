@@ -73,7 +73,7 @@ export default function CartScreen({ navigation }) {
       text1: "😍😍😍",
       text2: "Congratulations on your purchase, come back often!!",
       position: "top",
-      visibilityTime: 2000,
+      visibilityTime: 3000,
       autoHide: true,
       topOffset: 10,
       bottomOffset: 40,
