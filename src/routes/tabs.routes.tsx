@@ -8,6 +8,7 @@ import Cart from "../screens/Cart/CartScreen";
 import Icon from "react-native-vector-icons/FontAwesome";
 import Initial from "../screens/Initial/Initial";
 import Details from "../screens/Details/DetailsScreen";
+import Profile from "../screens/Profile/UserProfile";
 
 import Register from "../screens/Register/Register";
 import Login from "../screens/Login/Login";
@@ -88,6 +89,15 @@ export function TabRoutes() {
             tabBarIcon: ({ color }) => (
               <Icon name="shopping-bag" size={20} color={color} />
             ),
+          }}
+        />
+        <Tab.Screen
+          name="UserProfile"
+          component={Profile}
+          options={{
+            headerShown: false,
+            tabBarButton: () => null,
+            tabBarStyle: { display: "none" },
           }}
         />
       </Tab.Navigator>
