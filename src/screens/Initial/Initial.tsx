@@ -14,9 +14,8 @@ export default function InicialPage({ navigation }: { navigation: any }) {
         <View style={styles.HeaderBox}>
           <Text style={styles.textHeader}>Plant Paradise</Text>
 
-          <Text style={styles.textcontent}>
-            Find your favorite plants {""}
-            and help the environment
+          <Text style={styles.textapp}>
+            Find your favorite plants and help the environment
           </Text>
         </View>
 

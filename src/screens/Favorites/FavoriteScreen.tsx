@@ -26,8 +26,6 @@ export default function FavoritePage({ navigation }) {
           </View>
 
           <View style={styles.contentContainer}>
-            {/* Adicione os itens favoritos aqui */}
-
             {favoriteItems.map((item, index) => (
               <StickCard
                 id={item.id}

@@ -36,11 +36,7 @@ const LongCardButton = ({
   const heartIconName = isHeartClicked ? "heart" : "heart-outline";
 
   return (
-    <TouchableOpacity
-      style={styles.card}
-      onPress={veiwDetails}
-      // Adicione a função de retorno de chamada onPress aqui
-    >
+    <TouchableOpacity style={styles.card} onPress={veiwDetails}>
       <Image source={{ uri: imageSource }} style={styles.image} />
 
       <TouchableOpacity

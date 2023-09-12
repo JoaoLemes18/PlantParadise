@@ -16,12 +16,15 @@ export const styles = StyleSheet.create({
   },
 
   textHeader: {
-    fontSize: 40,
+    top: 10,
+    fontSize: 50,
     fontWeight: "bold",
     width: 200,
   },
-  textcontent: {
-    fontSize: 15,
+  textapp: {
+    top: 10,
+
+    fontSize: 18,
     width: 300,
   },
   HeaderBox: {
@@ -30,7 +33,7 @@ export const styles = StyleSheet.create({
     gap: 15,
   },
   HeaderButtons: {
-    gap: 10,
+    gap: 18,
     bottom: 10,
     width: "100%",
     justifyContent: "center",
