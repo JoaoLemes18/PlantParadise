@@ -54,11 +54,23 @@ const styles = StyleSheet.create({
     backgroundColor: "#ECF8F3",
     borderRadius: 8,
     marginBottom: 16,
+    ...Platform.select({
+      ios: {
+        shadowColor: "black",
+        shadowOffset: { width: 0, height: 2 },
+        shadowOpacity: 0.25,
+        shadowRadius: 4,
+      },
+      android: {
+        elevation: 3,
+      },
+    }),
   },
   image: {
     width: 100,
     height: "100%",
     marginRight: 10,
+    borderRadius: 8,
   },
   textContainer: {
     flex: 1,

@@ -98,7 +98,7 @@ const Home = ({ navigation }) => {
           </View>
 
           <View style={styles.flatlistVerticalText}>
-            <Text style={styles.flatlistVerticalText}>Most popular</Text>
+            <Text style={styles.flatlistText}>Most popular</Text>
 
             <FlatList
               horizontal

@@ -19,14 +19,16 @@ export const styles = StyleSheet.create({
     right: 15,
     marginHorizontal: 10,
   },
-  flatlistVerticalText: {
-    left: 2,
+  flatlistText: {
+    right: 9,
     fontSize: 20,
+    left: 3,
     fontWeight: "bold",
     paddingHorizontal: 20,
   },
   flatlisthorizontalText: {
     top: 10,
+    left: 10,
     fontSize: 20,
     fontWeight: "bold",
     paddingHorizontal: 10,

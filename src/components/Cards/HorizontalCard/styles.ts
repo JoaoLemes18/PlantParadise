@@ -4,10 +4,10 @@ export const styles = StyleSheet.create({
   card: {
     flexDirection: "row",
     alignItems: "center",
-    height: 120,
+    height: 140,
     width: "100%",
-    left: 12,
     margin: 10,
+    left: 10,
     top: 10,
     backgroundColor: "#fff",
     borderRadius: 8,
@@ -67,7 +67,7 @@ export const styles = StyleSheet.create({
     }),
   },
   image: {
-    width: 100,
+    width: 180,
     height: "100%",
     marginRight: 10,
     borderRadius: 8,
