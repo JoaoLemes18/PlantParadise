@@ -11,6 +11,8 @@ import {
 } from "react-native";
 import { styles } from "./styles";
 import { Ionicons } from "@expo/vector-icons";
+import { AntDesign } from "@expo/vector-icons";
+
 import { useRoute } from "@react-navigation/native";
 import { useFavorite } from "../../context/Favorite";
 
@@ -83,7 +85,7 @@ const Details = ({ navigation }) => {
           {/* Header */}
           <View style={styles.header}>
             <TouchableOpacity onPress={() => navigation.navigate("Home")}>
-              <Ionicons name="arrow-back" size={24} color="#000" />
+              <AntDesign name="left" size={24} color="black" />
             </TouchableOpacity>
             <Text style={styles.headerText}>Details</Text>
             <TouchableOpacity

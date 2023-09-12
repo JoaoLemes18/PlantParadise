@@ -39,7 +39,7 @@ const Home = ({ navigation }) => {
   const [selectedButton, setSelectedButton] = useState("All");
   const { addCarts } = useCart();
   const user = auth.currentUser;
-  const userName = user ? user.displayName : "Guest"; // Use "Guest" como um valor padrão se o usuário não estiver autenticado
+  const userName = user ? user.displayName : "User";
 
   //API
   useEffect(() => {

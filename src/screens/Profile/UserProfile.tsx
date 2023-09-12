@@ -7,6 +7,8 @@ import {
   Dimensions,
 } from "react-native";
 import { auth } from "../../firebase/config";
+import { AntDesign } from "@expo/vector-icons";
+
 import { useNavigation } from "@react-navigation/native";
 import { Ionicons } from "@expo/vector-icons";
 
@@ -36,15 +38,14 @@ const UserProfile = () => {
           onPress={() => navigation.navigate("Home")}
           style={styles.backButton}
         >
-          <Ionicons name="ios-arrow-back" size={24} color="black" />
+          <AntDesign name="left" size={24} color="black" />
         </TouchableOpacity>
         <Text style={styles.title}>Profile</Text>
       </View>
 
       <View style={styles.content}>
         {/* Ícone de usuário */}
-        <Ionicons name="ios-person" size={100} color="#000" />
-
+        <AntDesign name="user" size={100} color="black" />
         <Text style={styles.name}>{user?.displayName}</Text>
         <Text style={styles.email}> {user?.email}</Text>
       </View>

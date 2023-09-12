@@ -1,8 +1,9 @@
 import React from "react";
 import { View, Text, StyleSheet, SafeAreaView, ScrollView } from "react-native";
-import { styles } from "./styles";
+
 import StickCard from "../../components/Cards/stickCard";
 import { useFavorite } from "../../context/Favorite";
+import { styles } from "./styles";
 
 export interface FavoriteItems {
   id: string;
@@ -13,7 +14,7 @@ export interface FavoriteItems {
   favorite: boolean;
 }
 
-export default function FavoriteScreen({ navigation }) {
+export default function FavoritePage({ navigation }) {
   const { favoriteItems, addFavorite, deletefavorite } = useFavorite();
 
   return (
