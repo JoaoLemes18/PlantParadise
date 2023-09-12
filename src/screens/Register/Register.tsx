@@ -11,13 +11,14 @@ import { styles } from "./styles";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 
 import ButtonComponent from "../../components/Button/button";
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth } from "../../firebase/config";
 import Toast from "react-native-toast-message";
 
 export default function RegisterPage({ navigation }: { navigation: any }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [name, setName] = useState("");
 
   const showToast = () => {
     Toast.show({
@@ -47,11 +48,13 @@ export default function RegisterPage({ navigation }: { navigation: any }) {
       const user = userCredential.user;
       console.log("usuario criado");
       navigation.navigate("Login");
+      await updateProfile(user, {
+        displayName: name,
+      });
+
       showToast();
     } catch (error) {
       console.error("Erro no createUserWithEmailAndPassword:", error);
-
-      // Trate o erro conforme necessário
     }
   }
 
@@ -71,6 +74,12 @@ export default function RegisterPage({ navigation }: { navigation: any }) {
           <View style={styles.HeaderButtons}>
             <TextInput
               style={styles.TextInput}
+              onChangeText={(name) => setName(name)}
+              placeholder="Enter your name"
+            />
+
+            <TextInput
+              style={styles.TextInput}
               onChangeText={(email) => setEmail(email)}
               placeholder="Enter a email"
             />
@@ -79,7 +88,7 @@ export default function RegisterPage({ navigation }: { navigation: any }) {
               style={styles.TextInput}
               onChangeText={(password) => setPassword(password)}
               secureTextEntry
-              placeholder="Enter a password"
+              placeholder="Type your password"
             />
 
             <ButtonComponent

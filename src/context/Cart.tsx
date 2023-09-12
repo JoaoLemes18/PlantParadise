@@ -23,7 +23,6 @@ export const useCart = () => {
 
 const CartProvider = ({ children }: { children: React.ReactNode }) => {
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
-  const [showIndicator, setShowIndicator] = useState(false); // Inicialmente, o indicador não está visível
 
   function addCart(Item: any) {
     setCartItems(Item);
@@ -32,7 +31,6 @@ const CartProvider = ({ children }: { children: React.ReactNode }) => {
   function addCarts(Items: any) {
     console.log(Items);
     setCartItems([...cartItems, Items]);
-    setShowIndicator(true);
   }
 
   function deletItem(id: string) {
@@ -60,8 +58,6 @@ const CartProvider = ({ children }: { children: React.ReactNode }) => {
         addCarts,
         deletItem,
         putquantity,
-        setShowIndicator,
-        showIndicator,
       }}
     >
       {children}

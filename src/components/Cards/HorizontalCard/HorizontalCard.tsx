@@ -1,20 +1,20 @@
 import React, { useState } from "react";
-import {
-  View,
-  Text,
-  Image,
-  TouchableOpacity,
-  StyleSheet,
-  Platform,
-} from "react-native";
-import { Ionicons } from "@expo/vector-icons"; // Importe o ícone desejado aqui
+import { View, Text, Image, TouchableOpacity, Platform } from "react-native";
+import { Ionicons } from "@expo/vector-icons";
 import { useFavorite } from "../../../context/Favorite";
 import Toast from "react-native-toast-message";
-import { FavoriteItems } from "../../../screens/Favorites/FavoriteScreen";
 import { styles } from "./styles";
 
-const HorizontalCard = ({
-  navigation,
+interface HorizontalCardProps {
+  id: string;
+  imageSource: string;
+  title: string;
+  value: number;
+  veiwDetails: () => void;
+  onAddToCart: (id: string, title: string, value: number) => void;
+}
+
+const HorizontalCard: React.FC<HorizontalCardProps> = ({
   id,
   imageSource,
   title,
@@ -23,30 +23,27 @@ const HorizontalCard = ({
   onAddToCart,
 }) => {
   const isIOS = Platform.OS === "ios";
-
   const [isHeartClicked, setIsHeartClicked] = useState(false);
-
-  const { favoriteItems, addFavorite, deletefavorite } = useFavorite();
+  const { addFavorite, deletefavorite } = useFavorite();
 
   const handleAddToCart = () => {
     onAddToCart(id, title, value);
 
-    const showToastsuccess = () => {
-      Toast.show({
-        type: "success",
-        text1: "😍😍😍",
-        text2: "Congratulations on your purchase, come back often!!",
-        position: "top",
-        visibilityTime: 3000,
-        autoHide: true,
-        topOffset: 10,
-        bottomOffset: 40,
-        keyboardOffset: 10,
-      });
-    };
+    // Exibe a notificação de toast quando o item é adicionado ao carrinho
+    Toast.show({
+      type: "success",
+      text1: "Item Adicionado ao Carrinho",
+      text2: `${title} foi adicionado ao seu carrinho.`,
+      position: "top",
+      visibilityTime: 3000,
+      autoHide: true,
+      topOffset: 10,
+      bottomOffset: 40,
+      keyboardOffset: 10,
+    });
   };
+
   const handleHeartClick = () => {
-    // Inverte o estado atual
     setIsHeartClicked(!isHeartClicked);
 
     const item = {
@@ -62,7 +59,6 @@ const HorizontalCard = ({
     }
   };
 
-  // Nome do ícone com base no estado isHeartClicked
   const heartIconName = isHeartClicked ? "heart" : "heart-outline";
 
   return (
@@ -70,10 +66,8 @@ const HorizontalCard = ({
       style={[styles.card, isIOS && styles.iosShadow]}
       onPress={veiwDetails}
     >
-      {/* Imagem à esquerda */}
       <Image source={{ uri: imageSource }} style={styles.image} />
 
-      {/* Botão de coração */}
       <TouchableOpacity
         style={[
           styles.heartButton,
@@ -93,10 +87,7 @@ const HorizontalCard = ({
 
         <Text style={styles.value}>${value}</Text>
 
-        <TouchableOpacity
-          onPress={() => onAddToCart(id, title, value)}
-          style={styles.button}
-        >
+        <TouchableOpacity onPress={handleAddToCart} style={styles.button}>
           <Text style={styles.buttonText}>Add to Cart</Text>
         </TouchableOpacity>
       </View>

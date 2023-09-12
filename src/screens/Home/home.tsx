@@ -8,6 +8,8 @@ import {
   SafeAreaView,
   ScrollView,
 } from "react-native";
+import { auth } from "../../firebase/config";
+
 import { useCart } from "../../context/Cart";
 import HorizontalCard from "../../components/Cards/HorizontalCard/HorizontalCard";
 import { styles } from "./styles";
@@ -36,6 +38,8 @@ const Home = ({ navigation }) => {
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
   const [selectedButton, setSelectedButton] = useState("All");
   const { addCarts } = useCart();
+  const user = auth.currentUser;
+  const userName = user ? user.displayName : "Guest"; // Use "Guest" como um valor padrão se o usuário não estiver autenticado
 
   //API
   useEffect(() => {
@@ -88,7 +92,7 @@ const Home = ({ navigation }) => {
       <SafeAreaView>
         <ScrollView style={styles.container}>
           <View style={styles.content}>
-            <Text style={styles.usertext}>Hi, John</Text>
+            <Text style={styles.usertext}>Hi, {userName}</Text>
 
             <TouchableOpacity
               onPress={() => navigation.navigate("UserProfile")}
