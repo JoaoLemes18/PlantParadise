@@ -1,41 +1,57 @@
-# Challenge 3 
+# Challenge 3
 
 **Description:**
 
->The Project consists in a challenge received in an Internship Program, where it was necessary to make a app with five screens.
-The first with background image, title and registration/login button that leads to the second screen with a list of plants, each card represents a different plant. After clicking on a card you will be redirected to the third screen, which contains the plant image, title, value and description of the plant.
+The project is the result of an Internship Program challenge, where the task was to create an app with eight screens. It functions as an e-commerce platform for plants, containing screens for user registration/login, user profile, home, favorites, product details, and a shopping cart.
 
+**Technologies Used:**
 
-<br> **What We used in this Project:**<br>
-><img align="center" alt="ReactNative" height="50" width="50" title="ReactNative" src="https://skillicons.dev/icons?i=react"> <img align="center" alt="TypeScript" height="50" width="50" title="TypeScript" src="https://skillicons.dev/icons?i=ts">
+- <img align="center" alt="ReactNative" height="50" width="50" title="ReactNative" src="https://skillicons.dev/icons?i=react"> [React Native](https://reactnative.dev/)
+- <img align="center" alt="TypeScript" height="50" width="50" title="TypeScript" src="https://skillicons.dev/icons?i=ts"> [TypeScript](https://www.typescriptlang.org/)
 
-<br> **Requirements:**
->Node.js, expo-cli and the downloaded repository.
+**Requirements:**
 
-<br> **How to use:**
->First of all you will need to install Node.js in your machine.
+To run this project, ensure that you have the following installed:
 
->After this, open your Command Prompt and install the Expo with the follow command: npm install -g expo-cli.
+- [Node.js](https://nodejs.org/)
+- [Expo CLI](https://docs.expo.dev/get-started/installation/)
 
->When the project start you will be able to see a QR Code and some keyboard shortcuts. With the QR Code you can visualize the app in your on device. And with the shortcuts you will be able to use an emulator in your computer.
+**How to Use:**
 
->In case of using an emulator for visualization some SDK's can't work.
+1. **Installation:**
 
->For testing in real device: Iphone 12.
+   - First, install Node.js on your machine.
+   - Open your command prompt and install the Expo CLI using the following command:
 
+     ```bash
+     npm install -g expo-cli
+     ```
 
->At the end of this file you will be able to see some images of the Project.
+2. **Starting the Project:**
 
-<br> **Author:**
+   - Navigate to the project directory and start the app:
 
+     ```bash
+     cd plant-ecommerce-app
+     expo start
+     ```
 
+3. **Testing and Deployment:**
 
+   - You can use the QR code generated to run the app on your device.
+   - Alternatively, you can use keyboard shortcuts to use an emulator on your computer.
 
->João Guilherme Lemes Do Nascimento
+4. **Device Testing:**
 
+   The app is optimized for iPhone 12 for testing on a real device.
 
+**Author:**
 
+João Guilherme Lemes Do Nascimento
 
+**Screenshots:**
 
-<br> **Images:**
-
+![Screen 1](/screenshots/screen1.png)
+![Screen 2](/screenshots/screen2.png)
+![Screen 3](/screenshots/screen3.png)
+...
