@@ -1,0 +1,9 @@
+{
+  "compilerOptions": { "target": "ES6" },
+  "extends": "expo/tsconfig.base",
+  "include": ["src/**/*.ts", "src/**/*.tsx", "src/routes/tabs.routes.tsx"],
+  "baseUrl": "./",
+  "paths": {
+    "@/screens/": ["src/pages/*"]
+  }
+}
