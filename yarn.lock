@@ -1167,12 +1167,12 @@
 
 "@expo-google-fonts/dev@^0.2.3":
   version "0.2.3"
-  resolved "https://registry.yarnpkg.com/@expo-google-fonts/dev/-/dev-0.2.3.tgz#b52587de9f4562185d223d1ec3cb163ea49ace12"
+  resolved "https://registry.npmjs.org/@expo-google-fonts/dev/-/dev-0.2.3.tgz"
   integrity sha512-b0s8mqYb2IJn5pWyFmM4qD3Urbfz7DmRb1tNnSYMlQdj94YaFGGCTcXGPtQJ2m7p+aPWlZLkK0capQgYrPpJUw==
 
 "@expo-google-fonts/poppins@^0.2.3":
   version "0.2.3"
-  resolved "https://registry.yarnpkg.com/@expo-google-fonts/poppins/-/poppins-0.2.3.tgz#807fc1bf58948c32ddfb9c67f7329ff16cc78d14"
+  resolved "https://registry.npmjs.org/@expo-google-fonts/poppins/-/poppins-0.2.3.tgz"
   integrity sha512-PXkur1ZY/puy1PwVFYPJx8qiI3dtBzC2ig1bo53swCt7/sI7krCGYRO6hLBNp15M0kcNh2J4cCR9ZQyFxsving==
 
 "@expo/bunyan@4.0.0", "@expo/bunyan@^4.0.0":
