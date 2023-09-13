@@ -97,6 +97,9 @@ export default function RegisterPage({ navigation }: { navigation: any }) {
               style={styles.TextInput}
             />
 
+            <TouchableOpacity onPress={() => navigation.navigate("Login")}>
+              <Text>Already have an account? Click here</Text>
+            </TouchableOpacity>
             <TouchableOpacity onPress={() => navigation.navigate("Initial")}>
               <Text>Back to initial</Text>
             </TouchableOpacity>

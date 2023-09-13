@@ -8,15 +8,16 @@ import {
   Platform,
 } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
+import { useFavorite } from "../../context/Favorite";
 
-const StickCard = ({ imageSource, title, value, isFavorite }) => {
+const StickCard = ({ id, imageSource, title, value, isFavorite }) => {
   const [isHeartClicked, setIsHeartClicked] = useState(false);
 
-  const handleHeartClick = () => {
-    setIsHeartClicked(!isHeartClicked);
-  };
+  const { favoriteItems, addFavorite, deletefavorite } = useFavorite();
 
-  const heartIconName = isHeartClicked ? "heart" : "heart-outline";
+  const handleHeartClick = () => {
+    deletefavorite(id);
+  };
 
   return (
     <View style={styles.container}>
@@ -28,6 +29,7 @@ const StickCard = ({ imageSource, title, value, isFavorite }) => {
       </View>
 
       <View style={styles.buttonFavorite}>
+        {/* Botão de coração */}
         <TouchableOpacity
           style={[
             styles.heartButton,
@@ -35,11 +37,8 @@ const StickCard = ({ imageSource, title, value, isFavorite }) => {
           ]}
           onPress={handleHeartClick}
         >
-          <Ionicons
-            name={heartIconName}
-            size={20}
-            color={isHeartClicked ? "#418B64" : "black"}
-          />
+          {/* Use o componente Ionicons para o ícone de coração */}
+          <Ionicons name={"heart"} size={20} color={"#418B64"} />
         </TouchableOpacity>
       </View>
     </View>
@@ -54,35 +53,25 @@ const styles = StyleSheet.create({
     backgroundColor: "#ECF8F3",
     borderRadius: 8,
     marginBottom: 16,
-    ...Platform.select({
-      ios: {
-        shadowColor: "black",
-        shadowOffset: { width: 0, height: 2 },
-        shadowOpacity: 0.25,
-        shadowRadius: 4,
-      },
-      android: {
-        elevation: 3,
-      },
-    }),
   },
   image: {
+    borderRadius: 8,
+
     width: 100,
     height: "100%",
     marginRight: 10,
-    borderRadius: 8,
   },
   textContainer: {
     flex: 1,
   },
   title: {
-    fontSize: 18,
     top: 10,
+    fontSize: 18,
     fontWeight: "bold",
   },
   value: {
+    top: 11,
     fontSize: 14,
-    top: 12,
     fontWeight: "bold",
   },
   buttonFavorite: {
@@ -110,12 +99,12 @@ const styles = StyleSheet.create({
     }),
   },
   heartButtonClicked: {
-    backgroundColor: "white",
+    backgroundColor: "black",
     ...Platform.select({
       ios: {
         shadowColor: "black",
         shadowOffset: { width: 0, height: 2 },
-        shadowOpacity: 0.25,
+        shadowOpacity: 1.25,
         shadowRadius: 4,
       },
       android: {

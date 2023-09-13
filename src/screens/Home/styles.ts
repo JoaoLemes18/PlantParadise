@@ -7,6 +7,11 @@ export const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
   },
+  userimage: {
+    width: 25,
+    height: 25,
+    bottom: 5,
+  },
   usertext: {
     fontSize: 20,
     color: "#000000",
@@ -50,16 +55,16 @@ export const styles = StyleSheet.create({
     alignItems: "center",
   },
   buttonText: {
-    fontSize: 16,
     fontWeight: "bold",
-    color: "#a0a0a0",
+    fontSize: 16,
+    color: "#969595",
   },
   selectedButton: {
     backgroundColor: "none",
-    color: "#141414",
+    color: "#969595",
   },
   selectedButtonText: {
-    color: "#141414", // Texto branco para o botão selecionado
+    color: "#000", // Texto branco para o botão selecionado
   },
 
   longcardlist: {

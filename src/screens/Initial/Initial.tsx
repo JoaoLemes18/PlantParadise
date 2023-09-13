@@ -1,12 +1,12 @@
 import React from "react";
-import { Text, View, ImageBackground } from "react-native";
+import { Text, View, ImageBackground, TouchableOpacity } from "react-native";
 import ButtonComponent from "../../components/Button/button";
 import { styles } from "./styles";
 
 export default function InicialPage({ navigation }: { navigation: any }) {
   return (
     <ImageBackground
-      source={require("../../../assets/inicialpageimage.png")}
+      source={require("../../../assets/inicialpageimage.jpeg")}
       resizeMode="cover"
       style={styles.container}
     >
@@ -15,7 +15,7 @@ export default function InicialPage({ navigation }: { navigation: any }) {
           <Text style={styles.textHeader}>Plant Paradise</Text>
 
           <Text style={styles.textapp}>
-            Find your favorite plants and help the environment
+            Find your favorite plants and {"\n"}help the environment
           </Text>
         </View>
 

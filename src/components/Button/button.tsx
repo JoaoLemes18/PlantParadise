@@ -6,6 +6,7 @@ import {
   ViewStyle,
   TextStyle,
 } from "react-native";
+import { styles } from "./styles";
 
 interface ButtonComponentProps {
   onPress: () => void;
@@ -14,7 +15,7 @@ interface ButtonComponentProps {
   textColor?: string;
   style?: ViewStyle;
   buttonStyle?: ViewStyle;
-  textStyle?: TextStyle; // Use o tipo TextStyle aqui
+  textStyle?: TextStyle;
 }
 
 const ButtonComponent: React.FC<ButtonComponentProps> = ({
@@ -35,20 +36,5 @@ const ButtonComponent: React.FC<ButtonComponentProps> = ({
     </TouchableOpacity>
   );
 };
-
-const styles = StyleSheet.create({
-  button: {
-    paddingHorizontal: 20,
-    width: "90%",
-    paddingVertical: 10,
-    borderRadius: 12,
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  text: {
-    fontWeight: "400",
-    fontSize: 19,
-  },
-});
 
 export default ButtonComponent;

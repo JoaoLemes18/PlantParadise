@@ -38,7 +38,8 @@ export const styles = StyleSheet.create({
     gap: 25,
   },
   HeaderButtons: {
-    gap: 25,
+    gap: 20,
+    bottom: 15,
     width: "100%",
     justifyContent: "center",
     alignItems: "center",

@@ -104,7 +104,7 @@ export default function LoginPage({ navigation }: { navigation: any }) {
             />
 
             <TouchableOpacity onPress={() => navigation.navigate("Register")}>
-              <Text>If you don't have an account, click here</Text>
+              <Text>Don't have an account? Click here</Text>
             </TouchableOpacity>
           </View>
         </View>

@@ -16,16 +16,17 @@ export const styles = StyleSheet.create({
   },
 
   textHeader: {
-    top: 10,
+    top: 13,
+    right: 12,
     fontSize: 50,
     fontWeight: "bold",
     width: 200,
   },
   textapp: {
     top: 10,
-
+    right: 12,
     fontSize: 18,
-    width: 300,
+    width: 303,
   },
   HeaderBox: {
     bottom: 35,

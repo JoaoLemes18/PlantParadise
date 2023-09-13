@@ -8,9 +8,11 @@ export const styles = StyleSheet.create({
     marginLeft: 10,
     marginBottom: 10,
     marginTop: 20,
+    right: 12,
     overflow: "hidden",
     position: "relative",
   },
+
   favoriteButton: {
     position: "absolute",
     top: 10,
@@ -32,6 +34,23 @@ export const styles = StyleSheet.create({
   title: {
     fontSize: 18,
     fontWeight: "bold",
+  },
+  iosCard: {
+    ...Platform.select({
+      ios: {
+        shadowColor: "black",
+        shadowOffset: { width: 0, height: 2 },
+        shadowOpacity: 0.25,
+        shadowRadius: 4,
+      },
+    }),
+  },
+  androidCard: {
+    ...Platform.select({
+      android: {
+        elevation: 3,
+      },
+    }),
   },
   value: {
     fontSize: 16,

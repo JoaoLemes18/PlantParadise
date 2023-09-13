@@ -77,7 +77,7 @@ const HorizontalCard: React.FC<HorizontalCardProps> = ({
       >
         <Ionicons
           name={heartIconName}
-          size={20}
+          size={16}
           color={isHeartClicked ? "#418B64" : "black"}
         />
       </TouchableOpacity>

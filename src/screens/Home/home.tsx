@@ -97,7 +97,9 @@ const Home = ({ navigation }) => {
             <TouchableOpacity
               onPress={() => navigation.navigate("UserProfile")}
             >
-              <Image source={require("../../../assets/userimage.png")} />
+              <Image
+              style={styles.userimage} 
+              source={require("../../../assets/userimage.png")} />
             </TouchableOpacity>
           </View>
 
