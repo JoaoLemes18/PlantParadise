@@ -117,10 +117,9 @@ export default function CartScreen({ navigation }) {
           {/* Subtotal */}
           <View style={styles.subtotalContainer}>
             <Text style={styles.subtotalText}>Subtotal </Text>
-            <Text style={styles.subtotalText2}>R$ {calculateSubtotal()}</Text>
+            <Text style={styles.subtotalText2}>$ {calculateSubtotal()}</Text>
           </View>
 
-          {/* Botão de finalizar compra */}
           <TouchableOpacity
             style={styles.checkoutButton}
             onPress={handleCheckout}
