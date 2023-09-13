@@ -38,7 +38,7 @@ const CardCart = ({ imageSource, title, value, quantity, onremove, id }) => {
 
       <View style={styles.textContainer}>
         <Text style={styles.title}>{title}</Text>
-        <Text style={styles.value}>R$ {value}</Text>
+        <Text style={styles.value}>$ {value}</Text>
       </View>
 
       <View style={styles.buttonContainer}>
