@@ -33,7 +33,7 @@ To run this project, ensure that you have the following installed:
 
      ```bash
      cd plant-ecommerce-app
-     expo start
+     npx expo start
      ```
 
 3. **Testing and Deployment:**
