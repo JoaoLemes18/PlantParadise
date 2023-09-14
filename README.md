@@ -19,7 +19,7 @@
 >Node.js, expo-cli and the downloaded repository.
 
 **How to use:**
->First of all you will need to install Node.js in your machine.  After this, open your Command Prompt and install the Expo with the follow command: npm install -g expo-cli, cd PlantParadise and npm expo start 
+>First of all you will need to install Node.js in your machine.  After this, open your Command Prompt and install the Expo with the follow command: npm install -g expo-cli, cd PlantParadise and npm start 
 
 >When the project start you will be able to see a QR Code and some keyboard shortcuts. With the QR Code you can visualize the app in your on device. And with the shortcuts you will be able to use an emulator in your computer.
 
