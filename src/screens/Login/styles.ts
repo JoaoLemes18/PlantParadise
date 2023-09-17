@@ -10,6 +10,8 @@ export const styles = StyleSheet.create({
   boxInicial: {
     justifyContent: "center",
     alignItems: "center",
+    borderRadius: 51,
+
     backgroundColor: "#fff",
     height: "50%",
     width: "100%",

@@ -2,9 +2,10 @@ import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
   container: {
-    flex: 1, // Define flex 1 para que ocupe 100% da tela
-    alignItems: "center", // Você pode ajustar isso conforme necessário
-    justifyContent: "flex-end", // Você pode ajustar isso conforme necessário
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "flex-end",
+    borderRadius: 8,
   },
 
   boxInicial: {
@@ -13,6 +14,7 @@ export const styles = StyleSheet.create({
     backgroundColor: "#fff",
     width: "100%",
     height: "50%",
+    borderRadius: 35,
   },
 
   TextInput: {
@@ -26,6 +28,7 @@ export const styles = StyleSheet.create({
 
   textHeader: {
     fontSize: 50,
+    top: 10,
     fontWeight: "bold",
     width: "100%",
   },
