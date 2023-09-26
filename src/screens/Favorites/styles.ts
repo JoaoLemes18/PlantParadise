@@ -14,7 +14,12 @@ export const styles = StyleSheet.create({
   },
   usertext: {
     fontSize: 20,
-    color: "#000000",
+    color: "#000",
+    fontWeight: "bold",
+  },
+  emptyText: {
+    fontSize: 25,
+    color: "#000",
     fontWeight: "bold",
   },
 });

@@ -96,37 +96,41 @@ export default function CartScreen({ navigation }) {
 
           <Toast />
 
-          <View style={styles.contentContainer}>
-            {/* Renderizar os itens do carrinho */}
-
-            {cartItems.map((item, index) => (
-              <CardCart
-                id={item.id}
-                key={index}
-                imageSource={item.imageSource}
-                title={item.title}
-                value={item.value}
-                quantity={item.quantity}
-                onremove={removeFromCart}
-              />
-            ))}
-          </View>
+          {cartItems.length === 0 ? ( // Verifique se o carrinho está vazio
+            <Text style={styles.emptyCartText}>Your cart is empty.</Text>
+          ) : (
+            <View style={styles.contentContainer}>
+              {cartItems.map((item, index) => (
+                <CardCart
+                  id={item.id}
+                  key={index}
+                  imageSource={item.imageSource}
+                  title={item.title}
+                  value={item.value}
+                  quantity={item.quantity}
+                  onremove={removeFromCart}
+                />
+              ))}
+            </View>
+          )}
         </ScrollView>
 
-        <View style={styles.centralize}>
-          {/* Subtotal */}
-          <View style={styles.subtotalContainer}>
-            <Text style={styles.subtotalText}>Subtotal </Text>
-            <Text style={styles.subtotalText2}>$ {calculateSubtotal()}</Text>
-          </View>
+        {cartItems.length > 0 && ( // Mostra o subtotal e o botão de checkout apenas se o carrinho não estiver vazio
+          <View style={styles.centralize}>
+            {/* Subtotal */}
+            <View style={styles.subtotalContainer}>
+              <Text style={styles.subtotalText}>Subtotal </Text>
+              <Text style={styles.subtotalText2}>$ {calculateSubtotal()}</Text>
+            </View>
 
-          <TouchableOpacity
-            style={styles.checkoutButton}
-            onPress={handleCheckout}
-          >
-            <Text style={styles.checkoutButtonText}>Go to Checkout</Text>
-          </TouchableOpacity>
-        </View>
+            <TouchableOpacity
+              style={styles.checkoutButton}
+              onPress={handleCheckout}
+            >
+              <Text style={styles.checkoutButtonText}>Go to Checkout</Text>
+            </TouchableOpacity>
+          </View>
+        )}
       </SafeAreaView>
     </>
   );
