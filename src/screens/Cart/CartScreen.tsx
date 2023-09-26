@@ -85,6 +85,9 @@ export default function CartScreen({ navigation }) {
     addCart([]);
     showToastsuccess();
   };
+  const handleClearCart = () => {
+    addCart([]);
+  };
 
   return (
     <>
@@ -92,11 +95,14 @@ export default function CartScreen({ navigation }) {
         <ScrollView style={{ flex: 1, height: "100%" }} scrollEnabled={true}>
           <View style={styles.content}>
             <Text style={styles.usertext}>Cart</Text>
+            <TouchableOpacity onPress={handleClearCart}>
+              <Text style={styles.clearCartButtonText}>Clear Cart</Text>
+            </TouchableOpacity>
           </View>
 
           <Toast />
 
-          {cartItems.length === 0 ? ( // Verifique se o carrinho está vazio
+          {cartItems.length === 0 ? (
             <Text style={styles.emptyCartText}>Your cart is empty.</Text>
           ) : (
             <View style={styles.contentContainer}>

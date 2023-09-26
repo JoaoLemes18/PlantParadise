@@ -17,6 +17,10 @@ export const styles = StyleSheet.create({
     color: "#000",
     fontWeight: "bold",
   },
+  clearCartButtonText: {
+    color: "red",
+    fontSize: 20,
+  },
   usertext: {
     fontSize: 20,
     color: "#000000",
