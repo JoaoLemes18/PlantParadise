@@ -14,7 +14,6 @@ export const styles = StyleSheet.create({
     backgroundColor: "#fff",
     width: "100%",
     height: "50%",
-    borderRadius: 35,
   },
 
   TextInput: {
@@ -39,6 +38,10 @@ export const styles = StyleSheet.create({
   HeaderBox: {
     bottom: 5,
     gap: 25,
+  },
+  clickHereText: {
+    color: "#418B64",
+    fontWeight: "bold",
   },
   HeaderButtons: {
     gap: 20,
