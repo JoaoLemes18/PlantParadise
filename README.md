@@ -1,38 +1,38 @@
+# Challenge 3
 
-# Challenge 3 
+> This is for a React Native Expo TypeScript app that consists of eight main screens: Initial, Register, Login, User Profile, Home, Favorites, and Cart. Creating a plant e-commerce, with registration/login authentication
 
->This is  for a React Native Expo TypeScript app that consists of eight main screens: Initial, Register, Login, User Profile, Home, Favorites, and Cart. Creating a plant e-commerce, with registration/login authentication
 ## Dependencies
->- React Native
->- Expo
->- TypeScript
->- Redux
->- Async Storage
->- Firebase
->- Toast Message
->- React Navigation
 
+> - React Native
+> - Expo
+> - TypeScript
+> - Redux
+> - Async Storage
+> - Firebase
+> - Toast Message
+> - React Navigation
 
 ## Installation
 
->**Requirements:**
->Node.js, expo-cli and the downloaded repository.
+> **Requirements:**
+> Node.js, expo-cli and the downloaded repository.
 
 **How to use:**
->First of all you will need to install Node.js in your machine.  After this, open your Command Prompt and install the Expo with the follow command: npm install -g expo-cli, cd PlantParadise and npm start 
 
->When the project start you will be able to see a QR Code and some keyboard shortcuts. With the QR Code you can visualize the app in your on device. And with the shortcuts you will be able to use an emulator in your computer.
+> First of all you will need to install Node.js in your machine. After this, open your Command Prompt and install the Expo with the follow command: npm install -g expo-cli, cd PlantParadise and npm start
 
->In case of using an emulator for visualization some SDK's can't work.
+> When the project start you will be able to see a QR Code and some keyboard shortcuts. With the QR Code you can visualize the app in your on device. And with the shortcuts you will be able to use an emulator in your computer.
 
->For testing in real device: Iphone 12.
+> In case of using an emulator for visualization some SDK's can't work.
 
->At the end of this file you will be able to see some images of the Project.
+> For testing in real device: Iphone 12.
+
+> At the end of this file you will be able to see some images of the Project.
 
 ## Author
 
->**João Guilherme Lemes do Nascimento**
-
+> **João Guilherme Lemes do Nascimento**
 
 ## Images
 

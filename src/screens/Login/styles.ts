@@ -11,10 +11,13 @@ export const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     backgroundColor: "#fff",
-    height: "50%",
+    height: "45%",
     width: "100%",
   },
-
+  clickHereText: {
+    color: "#418B64",
+    fontWeight: "bold",
+  },
   TextInput: {
     borderColor: "#969595",
     borderBottomWidth: 1,

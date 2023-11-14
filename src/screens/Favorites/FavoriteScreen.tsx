@@ -26,16 +26,20 @@ export default function FavoritePage({ navigation }) {
           </View>
 
           <View style={styles.contentContainer}>
-            {favoriteItems.map((item, index) => (
-              <StickCard
-                id={item.id}
-                key={index}
-                imageSource={item.imageSource}
-                title={item.title}
-                value={item.value}
-                isFavorite={item.favorite}
-              />
-            ))}
+            {favoriteItems.length === 0 ? (
+              <Text style={styles.emptyText}>No favorite items.</Text>
+            ) : (
+              favoriteItems.map((item, index) => (
+                <StickCard
+                  id={item.id}
+                  key={index}
+                  imageSource={item.imageSource}
+                  title={item.title}
+                  value={item.value}
+                  isFavorite={item.favorite}
+                />
+              ))
+            )}
           </View>
         </ScrollView>
       </SafeAreaView>

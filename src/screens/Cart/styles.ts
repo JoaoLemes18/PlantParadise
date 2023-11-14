@@ -11,6 +11,16 @@ export const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
   },
+  emptyCartText: {
+    left: 25,
+    fontSize: 25,
+    color: "#000",
+    fontWeight: "bold",
+  },
+  clearCartButtonText: {
+    color: "red",
+    fontSize: 20,
+  },
   usertext: {
     fontSize: 20,
     color: "#000000",
