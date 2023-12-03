@@ -18,7 +18,7 @@ import { useFavorite } from "../../context/Favorite";
 
 interface Item {
   id: string;
-  imageSource: any; // Substitua "any" pelo tipo apropriado para sua imagem
+  imageSource: any;
   title: string;
   value: string;
   category: string;
@@ -36,7 +36,6 @@ const Details = ({ navigation }) => {
   const { favoriteItems, addFavorite, deletefavorite } = useFavorite();
 
   const handleHeartClick = () => {
-    // Inverte o estado atual
     setIsHeartClicked(!isHeartClicked);
 
     const item = {
@@ -73,7 +72,6 @@ const Details = ({ navigation }) => {
     setQuantity(quantity + 1);
   };
 
-  // Nome do ícone com base no estado isHeartClicked
   const heartIconName = isHeartClicked ? "heart" : "heart-outline";
 
   const totalPrice = (quantity * parseFloat(value)).toFixed(2);
