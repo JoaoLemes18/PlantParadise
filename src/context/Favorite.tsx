@@ -1,4 +1,4 @@
-import { FavoriteItems } from "../screens/Favorites/FavoriteScreen";
+import { FavoriteItems } from "../screens/Favorites";
 import { createContext, useContext, useState } from "react";
 
 interface favoriteProps {

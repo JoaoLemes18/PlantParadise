@@ -2,16 +2,16 @@ import React from "react";
 import { useEffect, useState } from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { NavigationContainer } from "@react-navigation/native";
-import Home from "../screens/Home/home";
-import Favorites from "../screens/Favorites/FavoriteScreen";
-import Cart from "../screens/Cart/CartScreen";
+import Home from "../screens/Home";
+import Favorites from "../screens/Favorites";
+import Cart from "../screens/Cart";
 import Icon from "react-native-vector-icons/FontAwesome";
-import Initial from "../screens/Initial/Initial";
-import Details from "../screens/Details/DetailsScreen";
-import Profile from "../screens/Profile/UserProfile";
+import Initial from "../screens/Initial";
+import Details from "../screens/Details";
+import Profile from "../screens/Profile";
 
-import Register from "../screens/Register/Register";
-import Login from "../screens/Login/Login";
+import Register from "../screens/Register";
+import Login from "../screens/Login";
 
 const Tab = createBottomTabNavigator();
 

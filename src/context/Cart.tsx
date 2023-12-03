@@ -1,5 +1,5 @@
 import { createContext, useContext, useState } from "react";
-import { CartItem } from "../screens/Cart/CartScreen";
+import { CartItem } from "../screens/Cart";
 
 interface cartProps {
   cartItems: CartItem[];

@@ -35,7 +35,6 @@ const UserProfile = () => {
       </View>
 
       <View style={styles.content}>
-        {/* Ícone de usuário */}
         <View style={styles.userimage}>
           <AntDesign name="user" size={100} color="black" />
         </View>
